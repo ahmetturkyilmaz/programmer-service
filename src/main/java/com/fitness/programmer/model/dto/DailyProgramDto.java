@@ -2,7 +2,7 @@ package com.fitness.programmer.model.dto;
 
 import java.util.HashMap;
 
-public class DailyProgramDto extends BaseDto {
+public class DailyProgramDto {
 
     private String name;
     private HashMap<String, MoveDto> moveSet;

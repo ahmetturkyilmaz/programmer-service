@@ -1,0 +1,13 @@
+server.port: 9086
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: "jdbc:mysql://${MYSQL_HOST:localhost}:3306/fh_db"
+    username: admin
+    password: fh_3022480
+
+
+spring.jpa.properties.hibernate.dialect: org.hibernate.dialect.MySQL5InnoDBDialect
