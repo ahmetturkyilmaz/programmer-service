@@ -1,5 +1,12 @@
 server.port: 9086
 
+auth:
+  app:
+    jwtSecret: ASecretOfADude
+    jwtExpirationMs: 86400000
+    header_string: Authorization
+
+
 spring:
   jpa:
     hibernate:

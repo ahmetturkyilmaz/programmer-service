@@ -1,14 +1,14 @@
 package com.fitness.programmer.model.dto;
 
-import com.fitness.programmer.model.enums.DayOfWeek;
-
-import java.util.HashMap;
+import java.util.List;
 
 public class WeeklyProgramDto {
 
     private String name;
-    private HashMap<DayOfWeek, DailyProgramDto> dailyProgramDtos;
 
+    private List<DailyProgramDto> dailyProgram;
+
+    private TotalProgramDto totalProgram;
 
     public String getName() {
         return name;
@@ -18,11 +18,19 @@ public class WeeklyProgramDto {
         this.name = name;
     }
 
-    public HashMap<DayOfWeek, DailyProgramDto> getDailyProgramDtos() {
-        return dailyProgramDtos;
+    public List<DailyProgramDto> getDailyProgram() {
+        return dailyProgram;
     }
 
-    public void setDailyProgramDtos(HashMap<DayOfWeek, DailyProgramDto> dailyProgramDtos) {
-        this.dailyProgramDtos = dailyProgramDtos;
+    public void setDailyProgram(List<DailyProgramDto> dailyProgram) {
+        this.dailyProgram = dailyProgram;
+    }
+
+    public TotalProgramDto getTotalProgram() {
+        return totalProgram;
+    }
+
+    public void setTotalProgram(TotalProgramDto totalProgram) {
+        this.totalProgram = totalProgram;
     }
 }

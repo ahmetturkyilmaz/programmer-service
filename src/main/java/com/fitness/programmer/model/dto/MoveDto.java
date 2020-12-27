@@ -1,13 +1,13 @@
 package com.fitness.programmer.model.dto;
 
-import javax.persistence.ElementCollection;
-import javax.validation.constraints.NotBlank;
-import java.util.HashMap;
+import java.util.Map;
 
 public class MoveDto {
     private String name;
+    private Integer number;
     private String sets;
-    private HashMap<Integer, String> setWeightMap;
+    private Map<Integer, Double> setWeightMap;
+    private DailyProgramDto dailyProgram;
 
     public String getName() {
         return name;
@@ -15,6 +15,14 @@ public class MoveDto {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Integer getNumber() {
+        return number;
+    }
+
+    public void setNumber(Integer number) {
+        this.number = number;
     }
 
     public String getSets() {
@@ -25,11 +33,19 @@ public class MoveDto {
         this.sets = sets;
     }
 
-    public HashMap<Integer, String> getSetWeightMap() {
+    public Map<Integer, Double> getSetWeightMap() {
         return setWeightMap;
     }
 
-    public void setSetWeightMap(HashMap<Integer, String> setWeightMap) {
+    public void setSetWeightMap(Map<Integer, Double> setWeightMap) {
         this.setWeightMap = setWeightMap;
+    }
+
+    public DailyProgramDto getDailyProgram() {
+        return dailyProgram;
+    }
+
+    public void setDailyProgram(DailyProgramDto dailyProgram) {
+        this.dailyProgram = dailyProgram;
     }
 }

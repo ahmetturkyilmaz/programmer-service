@@ -1,19 +1,20 @@
 package com.fitness.programmer.model.dto;
 
-import java.util.HashMap;
+import com.fitness.programmer.model.entity.MoveEntity;
+import com.fitness.programmer.model.entity.WeeklyProgramEntity;
+
+import java.util.List;
 
 public class DailyProgramDto {
 
     private String name;
-    private HashMap<String, MoveDto> moveSet;
+
+    private List<MoveEntity> moveSet;
+
+    private WeeklyProgramEntity weeklyProgram;
 
     public DailyProgramDto() {
 
-    }
-
-    public DailyProgramDto(String name, HashMap<String, MoveDto> moveSet) {
-        this.name = name;
-        this.moveSet = moveSet;
     }
 
     public String getName() {
@@ -24,11 +25,20 @@ public class DailyProgramDto {
         this.name = name;
     }
 
-    public HashMap<String, MoveDto> getMoveSet() {
+    public List<MoveEntity> getMoveSet() {
         return moveSet;
     }
 
-    public void setMoveSet(HashMap<String, MoveDto> moveSet) {
+    public void setMoveSet(List<MoveEntity> moveSet) {
         this.moveSet = moveSet;
     }
+
+    public WeeklyProgramEntity getWeeklyProgram() {
+        return weeklyProgram;
+    }
+
+    public void setWeeklyProgram(WeeklyProgramEntity weeklyProgram) {
+        this.weeklyProgram = weeklyProgram;
+    }
+
 }

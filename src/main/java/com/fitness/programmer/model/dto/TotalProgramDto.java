@@ -2,12 +2,12 @@ package com.fitness.programmer.model.dto;
 
 import com.fitness.programmer.model.enums.ProgramWeekType;
 
-import java.util.HashMap;
+import java.util.List;
 
-public class TotalProgramDto extends BaseDto{
+public class TotalProgramDto extends BaseDto {
     private String programName;
     private ProgramWeekType programWeekType;
-    private HashMap<Integer, WeeklyProgramDto> totalPrograms;
+    private List<WeeklyProgramDto> weeklyPrograms;
 
     public String getProgramName() {
         return programName;
@@ -25,11 +25,11 @@ public class TotalProgramDto extends BaseDto{
         this.programWeekType = programWeekType;
     }
 
-    public HashMap<Integer, WeeklyProgramDto> getTotalPrograms() {
-        return totalPrograms;
+    public List<WeeklyProgramDto> getWeeklyPrograms() {
+        return weeklyPrograms;
     }
 
-    public void setTotalPrograms(HashMap<Integer, WeeklyProgramDto> totalPrograms) {
-        this.totalPrograms = totalPrograms;
+    public void setWeeklyPrograms(List<WeeklyProgramDto> weeklyProgramDtos) {
+        this.weeklyPrograms = weeklyProgramDtos;
     }
 }

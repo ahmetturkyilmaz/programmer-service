@@ -1,16 +1,27 @@
 package com.fitness.programmer.model.entity;
 
-import javax.persistence.ElementCollection;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import java.util.HashMap;
+import javax.validation.constraints.NotNull;
+import java.util.Map;
 
-public class MoveEntity {
+@Entity
+@Table(name = "moveEntity")
+public class MoveEntity extends BaseEntity {
     @NotBlank
     private String name;
-    private String sets;
-    @ElementCollection
-    private HashMap<Integer, String> setWeightMap;
+    @NotNull
+    private Integer number;
 
+    private String sets;
+
+    @ElementCollection
+    private Map<Integer, Double> setWeightMap;
+
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE,
+            CascadeType.DETACH, CascadeType.REFRESH})
+    @JoinColumn(name = "dailyProgram_id")
+    private DailyProgramEntity dailyProgram;
 
     public String getName() {
         return name;
@@ -18,6 +29,14 @@ public class MoveEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Integer getNumber() {
+        return number;
+    }
+
+    public void setNumber(Integer number) {
+        this.number = number;
     }
 
     public String getSets() {
@@ -28,11 +47,19 @@ public class MoveEntity {
         this.sets = sets;
     }
 
-    public HashMap<Integer, String> getSetWeightMap() {
+    public Map<Integer, Double> getSetWeightMap() {
         return setWeightMap;
     }
 
-    public void setSetWeightMap(HashMap<Integer, String> setWeightMap) {
+    public void setSetWeightMap(Map<Integer, Double> setWeightMap) {
         this.setWeightMap = setWeightMap;
+    }
+
+    public DailyProgramEntity getDailyProgram() {
+        return dailyProgram;
+    }
+
+    public void setDailyProgram(DailyProgramEntity dailyProgram) {
+        this.dailyProgram = dailyProgram;
     }
 }
