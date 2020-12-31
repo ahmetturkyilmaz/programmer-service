@@ -22,7 +22,7 @@ public class TotalProgramController {
 
     @GetMapping("/total-program")
     public List<TotalProgramDto> getAllTotalPrograms(@RequestParam boolean isLazyLoading, HttpServletRequest httpServletRequest) {
-        String username = jwtUtils.getUsernameByJWT(httpServletRequest.getHeader("Authorization"));
+        String username = jwtUtils.getUsernameByJWT(httpServletRequest.getHeader("Authorization").substring(7));
         return totalProgramService.getAllTotalPrograms(isLazyLoading, username);
     }
 
@@ -34,6 +34,12 @@ public class TotalProgramController {
     @PostMapping("/total-program")
     public ResponseEntity<?> postTotalProgram(@RequestBody TotalProgramDto totalProgramDto) {
         Long id = totalProgramService.postTotalProgram(totalProgramDto);
+        return ResponseEntity.ok(id);
+    }
+
+    @PutMapping("/total-program")
+    public ResponseEntity<?> updateTotalProgram(@RequestBody TotalProgramDto totalProgramDto) {
+        Long id = totalProgramService.updateTotalProgram(totalProgramDto);
         return ResponseEntity.ok(id);
     }
 }

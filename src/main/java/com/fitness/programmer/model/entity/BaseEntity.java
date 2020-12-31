@@ -1,14 +1,14 @@
 package com.fitness.programmer.model.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
-@Entity
+@MappedSuperclass
 public class BaseEntity {
     @Id
+    @GeneratedValue
     private Long id;
     private String createdBy;
-    private String createdAt;
+    private Long createdAt;
 
 
     public Long getId() {
@@ -27,11 +27,11 @@ public class BaseEntity {
         this.createdBy = createdBy;
     }
 
-    public String getCreatedAt() {
+    public Long getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(String createdAt) {
+    public void setCreatedAt(Long createdAt) {
         this.createdAt = createdAt;
     }
 }

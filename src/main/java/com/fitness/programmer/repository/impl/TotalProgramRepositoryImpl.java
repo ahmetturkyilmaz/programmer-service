@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -40,7 +41,15 @@ public class TotalProgramRepositoryImpl implements ITotalProgramRepository {
     @Override
     public Long postTotalProgram(TotalProgramDto totalProgramDto) {
         TotalProgramEntity totalProgramEntity = mapper.dtoToEntity(totalProgramDto);
+        totalProgramEntity.setCreatedAt(new Date().getTime());
         TotalProgramEntity storedEntity = totalProgramRepositorySQL.save(totalProgramEntity);
+
         return storedEntity.getId();
     }
+
+    @Override
+    public Long updateTotalProgram(TotalProgramDto totalProgramDto) {
+        return null;
+    }
+
 }

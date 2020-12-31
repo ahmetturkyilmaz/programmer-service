@@ -53,7 +53,7 @@ public class RequestBodyAdviceChain implements RequestBodyAdvice {
             HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
             String requestMethod = request.getMethod();
 
-            String username = jwtUtils.getUsernameByJWT(request.getHeader(headerString));
+            String username = jwtUtils.getUsernameByJWT(request.getHeader(headerString).substring(7));
 
             if (HttpMethod.POST.name().equals(requestMethod)) {
 

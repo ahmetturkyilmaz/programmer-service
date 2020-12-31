@@ -10,4 +10,6 @@ public interface ITotalProgramRepository {
     TotalProgramDto getTotalProgramById(Long id);
 
     Long postTotalProgram(TotalProgramDto totalProgramDto);
+
+    Long updateTotalProgram(TotalProgramDto totalProgramDto);
 }

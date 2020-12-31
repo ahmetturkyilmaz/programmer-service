@@ -28,5 +28,10 @@ public class TotalProgramService implements ITotalProgramService {
         return totalProgramRepository.postTotalProgram(totalProgramDto);
     }
 
+    @Override
+    public Long updateTotalProgram(TotalProgramDto totalProgramDto) {
+        return totalProgramRepository.updateTotalProgram(totalProgramDto);
+    }
+
 
 }

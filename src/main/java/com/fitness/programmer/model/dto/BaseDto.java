@@ -5,7 +5,7 @@ import java.util.Date;
 public class BaseDto {
     private Long id;
     private String createdBy;
-    private Date createdAt;
+    private Long createdAt;
 
     public Long getId() {
         return id;
@@ -23,11 +23,11 @@ public class BaseDto {
         this.createdBy = createdBy;
     }
 
-    public Date getCreatedAt() {
+    public Long getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
+    public void setCreatedAt(Long createdAt) {
         this.createdAt = createdAt;
     }
 }

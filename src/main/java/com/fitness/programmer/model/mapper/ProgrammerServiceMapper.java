@@ -10,12 +10,14 @@ import com.fitness.programmer.model.entity.TotalProgramEntity;
 import com.fitness.programmer.model.entity.WeeklyProgramEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
+import javax.persistence.Inheritance;
 import java.util.List;
 
-@Mapper()
+@Mapper(componentModel="spring")
 public interface ProgrammerServiceMapper {
-    ProgrammerServiceMapper INSTANCE = Mappers.getMapper(ProgrammerServiceMapper.class);
 
     TotalProgramEntity dtoToEntity(TotalProgramDto totalProgramDto);
 
