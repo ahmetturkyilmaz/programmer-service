@@ -8,7 +8,6 @@ public class WeeklyProgramDto {
 
     private List<DailyProgramDto> dailyProgram;
 
-    private TotalProgramDto totalProgram;
 
     public String getName() {
         return name;
@@ -24,13 +23,5 @@ public class WeeklyProgramDto {
 
     public void setDailyProgram(List<DailyProgramDto> dailyProgram) {
         this.dailyProgram = dailyProgram;
-    }
-
-    public TotalProgramDto getTotalProgram() {
-        return totalProgram;
-    }
-
-    public void setTotalProgram(TotalProgramDto totalProgram) {
-        this.totalProgram = totalProgram;
     }
 }

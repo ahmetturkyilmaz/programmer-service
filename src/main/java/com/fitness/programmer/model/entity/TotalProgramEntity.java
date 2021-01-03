@@ -1,6 +1,8 @@
 package com.fitness.programmer.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fitness.programmer.model.enums.ProgramWeekType;
+import org.springframework.util.CollectionUtils;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -12,7 +14,9 @@ public class TotalProgramEntity extends BaseEntity {
     @NotBlank
     private String programName;
     private ProgramWeekType programWeekType;
-    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
+
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, mappedBy = "totalProgram")
     private List<WeeklyProgramEntity> weeklyPrograms;
 
     public TotalProgramEntity() {
@@ -41,6 +45,11 @@ public class TotalProgramEntity extends BaseEntity {
 
     public void setWeeklyPrograms(List<WeeklyProgramEntity> weeklyPrograms) {
         this.weeklyPrograms = weeklyPrograms;
+        if (!CollectionUtils.isEmpty(weeklyPrograms)) {
+            for (WeeklyProgramEntity weeklyProgramEntity : weeklyPrograms) {
+                weeklyProgramEntity.setTotalProgram(this);
+            }
+        }
     }
 
 

@@ -1,7 +1,8 @@
-package com.fitness.programmer.service;
+package com.fitness.programmer.service.impl;
 
 import com.fitness.programmer.model.dto.TotalProgramDto;
 import com.fitness.programmer.repository.ITotalProgramRepository;
+import com.fitness.programmer.service.ITotalProgramService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

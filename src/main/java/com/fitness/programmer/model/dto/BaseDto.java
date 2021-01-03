@@ -1,11 +1,10 @@
 package com.fitness.programmer.model.dto;
 
-import java.util.Date;
-
 public class BaseDto {
     private Long id;
     private String createdBy;
     private Long createdAt;
+    private Long version;
 
     public Long getId() {
         return id;
@@ -29,5 +28,13 @@ public class BaseDto {
 
     public void setCreatedAt(Long createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public Long getVersion() {
+        return version;
+    }
+
+    public void setVersion(Long version) {
+        this.version = version;
     }
 }

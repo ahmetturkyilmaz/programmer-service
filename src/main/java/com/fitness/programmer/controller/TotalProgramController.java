@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/total-programs")
+@RequestMapping("/api/programs")
 public class TotalProgramController {
 
     @Autowired

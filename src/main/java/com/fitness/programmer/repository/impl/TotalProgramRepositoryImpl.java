@@ -29,7 +29,7 @@ public class TotalProgramRepositoryImpl implements ITotalProgramRepository {
                 totalProgramEntity.getWeeklyPrograms();
             }
         }
-        return mapper.entityToDto(totalProgramEntities);
+        return mapper.entityToDtoTotalProgramEntityList(totalProgramEntities);
     }
 
     @Override

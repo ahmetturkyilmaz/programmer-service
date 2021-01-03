@@ -1,6 +1,9 @@
 package com.fitness.programmer.model.entity;
 
-import javax.persistence.*;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.Version;
 
 @MappedSuperclass
 public class BaseEntity {
@@ -9,7 +12,8 @@ public class BaseEntity {
     private Long id;
     private String createdBy;
     private Long createdAt;
-
+    @Version
+    private Long version;
 
     public Long getId() {
         return id;
@@ -33,5 +37,13 @@ public class BaseEntity {
 
     public void setCreatedAt(Long createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public Long getVersion() {
+        return version;
+    }
+
+    public void setVersion(Long version) {
+        this.version = version;
     }
 }

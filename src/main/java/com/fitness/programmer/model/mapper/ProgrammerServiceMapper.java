@@ -1,5 +1,6 @@
 package com.fitness.programmer.model.mapper;
 
+import com.fitness.programmer.exception.DayNotFoundException;
 import com.fitness.programmer.model.dto.DailyProgramDto;
 import com.fitness.programmer.model.dto.MoveDto;
 import com.fitness.programmer.model.dto.TotalProgramDto;
@@ -9,27 +10,25 @@ import com.fitness.programmer.model.entity.MoveEntity;
 import com.fitness.programmer.model.entity.TotalProgramEntity;
 import com.fitness.programmer.model.entity.WeeklyProgramEntity;
 import org.mapstruct.Mapper;
-import org.mapstruct.factory.Mappers;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 
-import javax.persistence.Inheritance;
 import java.util.List;
 
-@Mapper(componentModel="spring")
+@Mapper(componentModel = "spring")
 public interface ProgrammerServiceMapper {
 
     TotalProgramEntity dtoToEntity(TotalProgramDto totalProgramDto);
 
     TotalProgramDto entityToDto(TotalProgramEntity totalProgramEntity);
 
-    List<TotalProgramDto> entityToDto(List<TotalProgramEntity> totalProgramEntities);
+    List<TotalProgramDto> entityToDtoTotalProgramEntityList(List<TotalProgramEntity> totalProgramEntities);
 
     WeeklyProgramEntity dtoToEntity(WeeklyProgramDto weeklyProgramDto);
 
     WeeklyProgramDto entityToDto(WeeklyProgramEntity weeklyProgramEntity);
 
-    DailyProgramEntity dtoToEntity(DailyProgramDto dailyProgramDto);
+    List<WeeklyProgramDto> entityToDtoWeeklyProgramEntityList(List<WeeklyProgramEntity> weeklyProgramEntities);
+
+    DailyProgramEntity dtoToEntity(DailyProgramDto dailyProgramDto) throws DayNotFoundException;
 
     DailyProgramDto entityToDto(DailyProgramEntity dailyProgramEntity);
 
