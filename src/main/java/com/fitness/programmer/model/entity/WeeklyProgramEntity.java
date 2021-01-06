@@ -17,6 +17,7 @@ public class WeeklyProgramEntity extends BaseEntity {
     @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL}, mappedBy = "weeklyProgram")
     private List<DailyProgramEntity> dailyPrograms;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY,cascade = {CascadeType.PERSIST, CascadeType.MERGE,
             CascadeType.DETACH, CascadeType.REFRESH})
     @JoinColumn(name = "total_program_id")

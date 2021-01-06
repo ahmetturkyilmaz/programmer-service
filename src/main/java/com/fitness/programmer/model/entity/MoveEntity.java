@@ -15,12 +15,15 @@ public class MoveEntity extends BaseEntity {
     @NotNull
     private Integer number;
 
+    @JsonIgnore
     @ElementCollection(fetch = FetchType.EAGER)
     private Map<Integer, Integer> setRepMap;
 
+    @JsonIgnore
     @ElementCollection(fetch = FetchType.EAGER)
     private Map<Integer, Double> setWeightMap;
 
+    @JsonIgnore
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE,
             CascadeType.DETACH, CascadeType.REFRESH})
     @JoinColumn(name = "dailyProgram_id")
@@ -55,6 +58,7 @@ public class MoveEntity extends BaseEntity {
     }
 
     public void setSetWeightMap(Map<Integer, Double> setWeightMap) {
+
         this.setWeightMap = setWeightMap;
     }
 

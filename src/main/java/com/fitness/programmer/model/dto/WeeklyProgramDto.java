@@ -2,11 +2,12 @@ package com.fitness.programmer.model.dto;
 
 import java.util.List;
 
-public class WeeklyProgramDto {
+public class WeeklyProgramDto extends BaseDto {
 
     private String name;
 
     private List<DailyProgramDto> dailyPrograms;
+    private TotalProgramDto totalProgram;
 
 
     public String getName() {
@@ -23,5 +24,13 @@ public class WeeklyProgramDto {
 
     public void setDailyPrograms(List<DailyProgramDto> dailyProgram) {
         this.dailyPrograms = dailyProgram;
+    }
+
+    public TotalProgramDto getTotalProgram() {
+        return totalProgram;
+    }
+
+    public void setTotalProgram(TotalProgramDto totalProgram) {
+        this.totalProgram = totalProgram;
     }
 }

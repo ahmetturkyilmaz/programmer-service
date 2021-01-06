@@ -1,13 +1,14 @@
 package com.fitness.programmer.model.dto;
 
+import com.fitness.programmer.model.entity.DailyProgramEntity;
+
 import java.util.Map;
 
-public class MoveDto {
+public class MoveDto extends BaseDto{
     private String name;
     private Integer number;
     private Map<Integer, Integer> setRepMap;
     private Map<Integer, Double> setWeightMap;
-    private DailyProgramDto dailyProgram;
 
     public String getName() {
         return name;
@@ -24,6 +25,7 @@ public class MoveDto {
     public void setNumber(Integer number) {
         this.number = number;
     }
+    private DailyProgramDto dailyProgram;
 
     public Map<Integer, Integer> getSetRepMap() {
         return setRepMap;

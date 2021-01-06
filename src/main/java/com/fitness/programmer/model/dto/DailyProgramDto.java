@@ -5,11 +5,11 @@ import com.fitness.programmer.model.enums.DayOfWeek;
 
 import java.util.List;
 
-public class DailyProgramDto {
+public class DailyProgramDto extends BaseDto{
     private String name;
     private DayOfWeek dayOfWeek;
     private List<MoveDto> moveSet;
-    private WeeklyProgramDto weeklyProgramDto;
+    private WeeklyProgramDto weeklyProgram;
 
     public DailyProgramDto() {
 
@@ -39,11 +39,11 @@ public class DailyProgramDto {
         this.moveSet = moveSet;
     }
 
-    public WeeklyProgramDto getWeeklyProgramDto() {
-        return weeklyProgramDto;
+    public WeeklyProgramDto getWeeklyProgram() {
+        return weeklyProgram;
     }
 
-    public void setWeeklyProgramDto(WeeklyProgramDto weeklyProgramDto) {
-        this.weeklyProgramDto = weeklyProgramDto;
+    public void setWeeklyProgram(WeeklyProgramDto weeklyProgram) {
+        this.weeklyProgram = weeklyProgram;
     }
 }
