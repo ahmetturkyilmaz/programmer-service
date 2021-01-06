@@ -20,7 +20,7 @@ public class DailyProgramEntity extends BaseEntity {
     @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, mappedBy = "dailyProgram")
     private List<MoveEntity> moveSet;
 
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE,
+    @ManyToOne(fetch = FetchType.LAZY,cascade = {CascadeType.PERSIST, CascadeType.MERGE,
             CascadeType.DETACH, CascadeType.REFRESH})
     @JoinColumn(name = "weekly_program_id")
     private WeeklyProgramEntity weeklyProgram;

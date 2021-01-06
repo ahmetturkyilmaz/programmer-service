@@ -1,18 +1,15 @@
 package com.fitness.programmer.model.dto;
 
-import com.fitness.programmer.model.entity.MoveEntity;
 import com.fitness.programmer.model.entity.WeeklyProgramEntity;
 import com.fitness.programmer.model.enums.DayOfWeek;
 
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import java.util.List;
 
 public class DailyProgramDto {
     private String name;
     private DayOfWeek dayOfWeek;
-    private List<MoveEntity> moveSet;
-    private WeeklyProgramEntity weeklyProgram;
+    private List<MoveDto> moveSet;
+    private WeeklyProgramDto weeklyProgramDto;
 
     public DailyProgramDto() {
 
@@ -34,20 +31,19 @@ public class DailyProgramDto {
         this.name = name;
     }
 
-    public List<MoveEntity> getMoveSet() {
+    public List<MoveDto> getMoveSet() {
         return moveSet;
     }
 
-    public void setMoveSet(List<MoveEntity> moveSet) {
+    public void setMoveSet(List<MoveDto> moveSet) {
         this.moveSet = moveSet;
     }
 
-    public WeeklyProgramEntity getWeeklyProgram() {
-        return weeklyProgram;
+    public WeeklyProgramDto getWeeklyProgramDto() {
+        return weeklyProgramDto;
     }
 
-    public void setWeeklyProgram(WeeklyProgramEntity weeklyProgram) {
-        this.weeklyProgram = weeklyProgram;
+    public void setWeeklyProgramDto(WeeklyProgramDto weeklyProgramDto) {
+        this.weeklyProgramDto = weeklyProgramDto;
     }
-
 }

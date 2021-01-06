@@ -15,9 +15,9 @@ public class WeeklyProgramEntity extends BaseEntity {
 
     @JsonIgnore
     @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL}, mappedBy = "weeklyProgram")
-    private List<DailyProgramEntity> dailyProgram;
+    private List<DailyProgramEntity> dailyPrograms;
 
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE,
+    @ManyToOne(fetch = FetchType.LAZY,cascade = {CascadeType.PERSIST, CascadeType.MERGE,
             CascadeType.DETACH, CascadeType.REFRESH})
     @JoinColumn(name = "total_program_id")
     private TotalProgramEntity totalProgram;
@@ -30,12 +30,12 @@ public class WeeklyProgramEntity extends BaseEntity {
         this.name = name;
     }
 
-    public List<DailyProgramEntity> getDailyProgram() {
-        return dailyProgram;
+    public List<DailyProgramEntity> getDailyPrograms() {
+        return dailyPrograms;
     }
 
-    public void setDailyProgram(List<DailyProgramEntity> dailyProgram) {
-        this.dailyProgram = dailyProgram;
+    public void setDailyPrograms(List<DailyProgramEntity> dailyProgram) {
+        this.dailyPrograms = dailyProgram;
         if (!CollectionUtils.isEmpty(dailyProgram)) {
             for (DailyProgramEntity dailyProgramEntity : dailyProgram) {
                 dailyProgramEntity.setWeeklyProgram(this);

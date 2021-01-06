@@ -1,7 +1,6 @@
 package com.fitness.programmer.repository.sqlrepository;
 
 import com.fitness.programmer.model.entity.TotalProgramEntity;
-import com.fitness.programmer.repository.impl.TotalProgramRepositoryImpl;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

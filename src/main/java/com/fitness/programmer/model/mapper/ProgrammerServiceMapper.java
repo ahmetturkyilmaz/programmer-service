@@ -28,6 +28,8 @@ public interface ProgrammerServiceMapper {
 
     List<WeeklyProgramDto> entityToDtoWeeklyProgramEntityList(List<WeeklyProgramEntity> weeklyProgramEntities);
 
+    List<DailyProgramDto> entityToDtoDailyProgramEntityList(List<DailyProgramEntity> dailyProgramEntities);
+
     DailyProgramEntity dtoToEntity(DailyProgramDto dailyProgramDto) throws DayNotFoundException;
 
     DailyProgramDto entityToDto(DailyProgramEntity dailyProgramEntity);

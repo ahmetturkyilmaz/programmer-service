@@ -6,7 +6,7 @@ public class WeeklyProgramDto {
 
     private String name;
 
-    private List<DailyProgramDto> dailyProgram;
+    private List<DailyProgramDto> dailyPrograms;
 
 
     public String getName() {
@@ -17,11 +17,11 @@ public class WeeklyProgramDto {
         this.name = name;
     }
 
-    public List<DailyProgramDto> getDailyProgram() {
-        return dailyProgram;
+    public List<DailyProgramDto> getDailyPrograms() {
+        return dailyPrograms;
     }
 
-    public void setDailyProgram(List<DailyProgramDto> dailyProgram) {
-        this.dailyProgram = dailyProgram;
+    public void setDailyPrograms(List<DailyProgramDto> dailyProgram) {
+        this.dailyPrograms = dailyProgram;
     }
 }

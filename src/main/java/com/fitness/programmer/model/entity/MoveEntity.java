@@ -1,5 +1,7 @@
 package com.fitness.programmer.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -13,9 +15,10 @@ public class MoveEntity extends BaseEntity {
     @NotNull
     private Integer number;
 
-    private String sets;
+    @ElementCollection(fetch = FetchType.EAGER)
+    private Map<Integer, Integer> setRepMap;
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     private Map<Integer, Double> setWeightMap;
 
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE,
@@ -39,12 +42,12 @@ public class MoveEntity extends BaseEntity {
         this.number = number;
     }
 
-    public String getSets() {
-        return sets;
+    public Map<Integer, Integer> getSetRepMap() {
+        return setRepMap;
     }
 
-    public void setSets(String sets) {
-        this.sets = sets;
+    public void setSetRepMap(Map<Integer, Integer> setRepMap) {
+        this.setRepMap = setRepMap;
     }
 
     public Map<Integer, Double> getSetWeightMap() {

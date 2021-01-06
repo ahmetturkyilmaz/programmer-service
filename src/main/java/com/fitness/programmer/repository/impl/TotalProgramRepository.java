@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class TotalProgramRepositoryImpl implements ITotalProgramRepository {
+public class TotalProgramRepository implements ITotalProgramRepository {
     @Autowired
     private ITotalProgramRepositorySQL totalProgramRepositorySQL;
     @Autowired

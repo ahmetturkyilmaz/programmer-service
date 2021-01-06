@@ -5,7 +5,7 @@ import java.util.Map;
 public class MoveDto {
     private String name;
     private Integer number;
-    private String sets;
+    private Map<Integer, Integer> setRepMap;
     private Map<Integer, Double> setWeightMap;
     private DailyProgramDto dailyProgram;
 
@@ -25,12 +25,12 @@ public class MoveDto {
         this.number = number;
     }
 
-    public String getSets() {
-        return sets;
+    public Map<Integer, Integer> getSetRepMap() {
+        return setRepMap;
     }
 
-    public void setSets(String sets) {
-        this.sets = sets;
+    public void setSetRepMap(Map<Integer, Integer> setRepMap) {
+        this.setRepMap = setRepMap;
     }
 
     public Map<Integer, Double> getSetWeightMap() {
