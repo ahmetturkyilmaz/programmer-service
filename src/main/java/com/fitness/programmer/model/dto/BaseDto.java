@@ -1,16 +1,16 @@
 package com.fitness.programmer.model.dto;
 
 public class BaseDto {
-    private Long id;
+    private String id;
     private String createdBy;
     private Long createdAt;
     private Long version;
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

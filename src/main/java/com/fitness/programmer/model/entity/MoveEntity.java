@@ -2,32 +2,18 @@ package com.fitness.programmer.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import java.util.Map;
 
-@Entity
-@Table(name = "moveEntity")
 public class MoveEntity extends BaseEntity {
-    @NotBlank
     private String name;
-    @NotNull
     private Integer number;
 
     @JsonIgnore
-    @ElementCollection(fetch = FetchType.EAGER)
     private Map<Integer, Integer> setRepMap;
 
     @JsonIgnore
-    @ElementCollection(fetch = FetchType.EAGER)
     private Map<Integer, Double> setWeightMap;
 
-    @JsonIgnore
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE,
-            CascadeType.DETACH, CascadeType.REFRESH})
-    @JoinColumn(name = "dailyProgram_id")
-    private DailyProgramEntity dailyProgram;
 
     public String getName() {
         return name;
@@ -60,13 +46,5 @@ public class MoveEntity extends BaseEntity {
     public void setSetWeightMap(Map<Integer, Double> setWeightMap) {
 
         this.setWeightMap = setWeightMap;
-    }
-
-    public DailyProgramEntity getDailyProgram() {
-        return dailyProgram;
-    }
-
-    public void setDailyProgram(DailyProgramEntity dailyProgram) {
-        this.dailyProgram = dailyProgram;
     }
 }

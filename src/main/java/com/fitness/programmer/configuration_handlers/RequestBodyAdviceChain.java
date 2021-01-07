@@ -1,6 +1,5 @@
 package com.fitness.programmer.configuration_handlers;
 
-import com.fitness.programmer.JWTUtils;
 import com.fitness.programmer.model.dto.BaseDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

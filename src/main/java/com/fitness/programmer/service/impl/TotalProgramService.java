@@ -1,5 +1,6 @@
 package com.fitness.programmer.service.impl;
 
+import com.fitness.programmer.exception.RequestException;
 import com.fitness.programmer.model.dto.TotalProgramDto;
 import com.fitness.programmer.repository.ITotalProgramRepository;
 import com.fitness.programmer.service.ITotalProgramService;
@@ -15,22 +16,22 @@ public class TotalProgramService implements ITotalProgramService {
     ITotalProgramRepository totalProgramRepository;
 
     @Override
-    public List<TotalProgramDto> getAllTotalPrograms(boolean isLazyLoading, String username) {
-        return totalProgramRepository.getAllTotalPrograms(isLazyLoading,username);
+    public List<TotalProgramDto> getAllTotalPrograms( String username) {
+        return totalProgramRepository.getAllTotalPrograms(username);
     }
 
     @Override
-    public TotalProgramDto getTotalProgramById(Long id) {
+    public TotalProgramDto getTotalProgramById(String id) throws RequestException {
         return totalProgramRepository.getTotalProgramById(id);
     }
 
     @Override
-    public Long postTotalProgram(TotalProgramDto totalProgramDto) {
+    public String postTotalProgram(TotalProgramDto totalProgramDto) {
         return totalProgramRepository.postTotalProgram(totalProgramDto);
     }
 
     @Override
-    public Long updateTotalProgram(TotalProgramDto totalProgramDto) {
+    public String updateTotalProgram(TotalProgramDto totalProgramDto) throws RequestException {
         return totalProgramRepository.updateTotalProgram(totalProgramDto);
     }
 

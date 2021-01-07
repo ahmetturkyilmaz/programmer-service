@@ -1,17 +1,18 @@
 package com.fitness.programmer.service;
 
+import com.fitness.programmer.exception.RequestException;
 import com.fitness.programmer.model.dto.TotalProgramDto;
 
 import java.util.List;
 
 public interface ITotalProgramService {
 
-    List<TotalProgramDto> getAllTotalPrograms(boolean isLazyLoading, String username);
+    List<TotalProgramDto> getAllTotalPrograms( String username);
 
 
-    TotalProgramDto getTotalProgramById(Long id);
+    TotalProgramDto getTotalProgramById(String id) throws RequestException;
 
-    Long postTotalProgram(TotalProgramDto totalProgramDto);
+    String postTotalProgram(TotalProgramDto totalProgramDto);
 
-    Long updateTotalProgram(TotalProgramDto totalProgramDto);
+    String updateTotalProgram(TotalProgramDto totalProgramDto) throws RequestException;
 }

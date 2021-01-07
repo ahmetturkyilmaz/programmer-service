@@ -1,4 +1,4 @@
-package com.fitness.programmer;
+package com.fitness.programmer.configuration_handlers;
 
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;

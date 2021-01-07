@@ -1,30 +1,15 @@
 package com.fitness.programmer.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fitness.programmer.exception.DayNotFoundException;
 import com.fitness.programmer.model.enums.DayOfWeek;
-import org.springframework.util.CollectionUtils;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import java.util.List;
 
-@Entity
-@Table(name = "dailyProgram")
 public class DailyProgramEntity extends BaseEntity {
-    @NotBlank
     private String name;
 
     private DayOfWeek dayOfWeek;
-    @JsonIgnore
-    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, mappedBy = "dailyProgram")
     private List<MoveEntity> moveSet;
 
-    @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY,cascade = {CascadeType.PERSIST, CascadeType.MERGE,
-            CascadeType.DETACH, CascadeType.REFRESH})
-    @JoinColumn(name = "weekly_program_id")
-    private WeeklyProgramEntity weeklyProgram;
 
     public DailyProgramEntity() {
     }
@@ -33,8 +18,9 @@ public class DailyProgramEntity extends BaseEntity {
         return dayOfWeek;
     }
 
-    public void setDayOfWeek(DayOfWeek dayOfWeek) throws DayNotFoundException {
-        String day = dayOfWeek.toString();
+    public void setDayOfWeek(DayOfWeek dayOfWeek) {
+        this.dayOfWeek = dayOfWeek;
+/*        String day = dayOfWeek.toString();
         switch (day) {
             case "MONDAY":
                 this.dayOfWeek = DayOfWeek.MONDAY;
@@ -59,7 +45,7 @@ public class DailyProgramEntity extends BaseEntity {
                 break;
             default:
                 throw new DayNotFoundException(day);
-        }
+        }*/
     }
 
     public String getName() {
@@ -76,18 +62,6 @@ public class DailyProgramEntity extends BaseEntity {
 
     public void setMoveSet(List<MoveEntity> moveSet) {
         this.moveSet = moveSet;
-        if (!CollectionUtils.isEmpty(moveSet)) {
-            for (MoveEntity moveEntity : moveSet) {
-                moveEntity.setDailyProgram(this);
-            }
-        }
     }
 
-    public WeeklyProgramEntity getWeeklyProgram() {
-        return weeklyProgram;
-    }
-
-    public void setWeeklyProgram(WeeklyProgramEntity weeklyProgram) {
-        this.weeklyProgram = weeklyProgram;
-    }
 }

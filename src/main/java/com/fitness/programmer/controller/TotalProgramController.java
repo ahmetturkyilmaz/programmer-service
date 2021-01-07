@@ -1,6 +1,7 @@
 package com.fitness.programmer.controller;
 
-import com.fitness.programmer.JWTUtils;
+import com.fitness.programmer.configuration_handlers.JWTUtils;
+import com.fitness.programmer.exception.RequestException;
 import com.fitness.programmer.model.dto.TotalProgramDto;
 import com.fitness.programmer.service.ITotalProgramService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,25 +22,25 @@ public class TotalProgramController {
     JWTUtils jwtUtils;
 
     @GetMapping("/total-program")
-    public List<TotalProgramDto> getAllTotalPrograms(@RequestParam boolean isLazyLoading, HttpServletRequest httpServletRequest) {
+    public List<TotalProgramDto> getAllTotalPrograms( HttpServletRequest httpServletRequest) {
         String username = jwtUtils.getUsernameByJWT(httpServletRequest.getHeader("Authorization").substring(7));
-        return totalProgramService.getAllTotalPrograms(isLazyLoading, username);
+        return totalProgramService.getAllTotalPrograms( username);
     }
 
     @GetMapping("/total-program/{id}")
-    public TotalProgramDto getTotalProgramById(@PathVariable Long id) {
+    public TotalProgramDto getTotalProgramById(@PathVariable String id) throws RequestException {
         return totalProgramService.getTotalProgramById(id);
     }
 
     @PostMapping("/total-program")
     public ResponseEntity<?> postTotalProgram(@RequestBody TotalProgramDto totalProgramDto) {
-        Long id = totalProgramService.postTotalProgram(totalProgramDto);
+        String id = totalProgramService.postTotalProgram(totalProgramDto);
         return ResponseEntity.ok(id);
     }
 
     @PutMapping("/total-program")
-    public ResponseEntity<?> updateTotalProgram(@RequestBody TotalProgramDto totalProgramDto) {
-        Long id = totalProgramService.updateTotalProgram(totalProgramDto);
+    public ResponseEntity<?> updateTotalProgram(@RequestBody TotalProgramDto totalProgramDto) throws RequestException {
+        String id = totalProgramService.updateTotalProgram(totalProgramDto);
         return ResponseEntity.ok(id);
     }
 }

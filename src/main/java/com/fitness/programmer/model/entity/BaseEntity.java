@@ -1,25 +1,22 @@
 package com.fitness.programmer.model.entity;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.Version;
 
-@MappedSuperclass
+import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Version;
+
 public class BaseEntity {
     @Id
-    @GeneratedValue
-    private Long id;
+    private String id;
     private String createdBy;
     private Long createdAt;
     @Version
     private Long version;
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
