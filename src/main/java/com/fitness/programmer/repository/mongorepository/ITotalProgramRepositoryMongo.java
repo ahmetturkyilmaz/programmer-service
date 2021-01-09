@@ -10,6 +10,6 @@ import java.util.List;
 @Repository
 public interface ITotalProgramRepositoryMongo extends MongoRepository<TotalProgramEntity, String> {
 
-    @Query("createdBy:?0")
+    @Query("{createdBy:?0}")
     List<TotalProgramEntity> findByUsername(String createdBy);
 }

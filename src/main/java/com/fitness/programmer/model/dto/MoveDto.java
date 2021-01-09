@@ -1,14 +1,13 @@
 package com.fitness.programmer.model.dto;
 
-import com.fitness.programmer.model.entity.DailyProgramEntity;
-
 import java.util.Map;
 
-public class MoveDto extends BaseDto{
+public class MoveDto {
     private String name;
-    private Integer number;
-    private Map<Integer, Integer> setRepMap;
-    private Map<Integer, Double> setWeightMap;
+    private Integer moveNumber;
+    private Integer sets;
+    private Map<Integer, RepWeightDto> setRepWeightMap;
+
 
     public String getName() {
         return name;
@@ -18,36 +17,27 @@ public class MoveDto extends BaseDto{
         this.name = name;
     }
 
-    public Integer getNumber() {
-        return number;
+    public Integer getMoveNumber() {
+        return moveNumber;
     }
 
-    public void setNumber(Integer number) {
-        this.number = number;
-    }
-    private DailyProgramDto dailyProgram;
-
-    public Map<Integer, Integer> getSetRepMap() {
-        return setRepMap;
+    public Integer getSets() {
+        return sets;
     }
 
-    public void setSetRepMap(Map<Integer, Integer> setRepMap) {
-        this.setRepMap = setRepMap;
+    public void setSets(Integer sets) {
+        this.sets = sets;
     }
 
-    public Map<Integer, Double> getSetWeightMap() {
-        return setWeightMap;
+    public void setMoveNumber(Integer moveNumber) {
+        this.moveNumber = moveNumber;
     }
 
-    public void setSetWeightMap(Map<Integer, Double> setWeightMap) {
-        this.setWeightMap = setWeightMap;
+    public Map<Integer, RepWeightDto> getSetRepWeightMap() {
+        return setRepWeightMap;
     }
 
-    public DailyProgramDto getDailyProgram() {
-        return dailyProgram;
-    }
-
-    public void setDailyProgram(DailyProgramDto dailyProgram) {
-        this.dailyProgram = dailyProgram;
+    public void setSetRepWeightMap(Map<Integer, RepWeightDto> setRepWeightMap) {
+        this.setRepWeightMap = setRepWeightMap;
     }
 }

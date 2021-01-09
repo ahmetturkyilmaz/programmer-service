@@ -26,7 +26,7 @@ public class TotalProgramService implements ITotalProgramService {
     }
 
     @Override
-    public String postTotalProgram(TotalProgramDto totalProgramDto) {
+    public TotalProgramDto postTotalProgram(TotalProgramDto totalProgramDto) {
         return totalProgramRepository.postTotalProgram(totalProgramDto);
     }
 

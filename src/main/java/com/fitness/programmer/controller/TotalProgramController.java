@@ -22,9 +22,9 @@ public class TotalProgramController {
     JWTUtils jwtUtils;
 
     @GetMapping("/total-program")
-    public List<TotalProgramDto> getAllTotalPrograms( HttpServletRequest httpServletRequest) {
+    public List<TotalProgramDto> getAllTotalPrograms(HttpServletRequest httpServletRequest) {
         String username = jwtUtils.getUsernameByJWT(httpServletRequest.getHeader("Authorization").substring(7));
-        return totalProgramService.getAllTotalPrograms( username);
+        return totalProgramService.getAllTotalPrograms(username);
     }
 
     @GetMapping("/total-program/{id}")
@@ -34,8 +34,8 @@ public class TotalProgramController {
 
     @PostMapping("/total-program")
     public ResponseEntity<?> postTotalProgram(@RequestBody TotalProgramDto totalProgramDto) {
-        String id = totalProgramService.postTotalProgram(totalProgramDto);
-        return ResponseEntity.ok(id);
+        TotalProgramDto storedTotalProgram = totalProgramService.postTotalProgram(totalProgramDto);
+        return ResponseEntity.ok().body(storedTotalProgram);
     }
 
     @PutMapping("/total-program")

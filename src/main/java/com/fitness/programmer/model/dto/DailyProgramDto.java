@@ -1,15 +1,13 @@
 package com.fitness.programmer.model.dto;
 
-import com.fitness.programmer.model.entity.WeeklyProgramEntity;
 import com.fitness.programmer.model.enums.DayOfWeek;
 
 import java.util.List;
 
-public class DailyProgramDto extends BaseDto{
+public class DailyProgramDto {
     private String name;
     private DayOfWeek dayOfWeek;
     private List<MoveDto> moveSet;
-    private WeeklyProgramDto weeklyProgram;
 
     public DailyProgramDto() {
 
@@ -39,11 +37,4 @@ public class DailyProgramDto extends BaseDto{
         this.moveSet = moveSet;
     }
 
-    public WeeklyProgramDto getWeeklyProgram() {
-        return weeklyProgram;
-    }
-
-    public void setWeeklyProgram(WeeklyProgramDto weeklyProgram) {
-        this.weeklyProgram = weeklyProgram;
-    }
 }

@@ -11,7 +11,7 @@ public interface ITotalProgramRepository {
 
     TotalProgramDto getTotalProgramById(String id) throws RequestException;
 
-    String postTotalProgram(TotalProgramDto totalProgramDto);
+    TotalProgramDto postTotalProgram(TotalProgramDto totalProgramDto);
 
     String updateTotalProgram(TotalProgramDto totalProgramDto) throws RequestException;
 }

@@ -5,7 +5,7 @@ import org.springframework.util.CollectionUtils;
 
 import java.util.List;
 
-public class WeeklyProgramEntity extends BaseEntity {
+public class WeeklyProgramEntity  {
     private String name;
 
     private List<DailyProgramEntity> dailyPrograms;

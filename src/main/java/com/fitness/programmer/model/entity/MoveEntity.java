@@ -4,15 +4,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.Map;
 
-public class MoveEntity extends BaseEntity {
+public class MoveEntity {
     private String name;
-    private Integer number;
+    private Integer moveNumber;
+    private Integer sets;
 
     @JsonIgnore
-    private Map<Integer, Integer> setRepMap;
-
-    @JsonIgnore
-    private Map<Integer, Double> setWeightMap;
+    private Map<Integer, RepWeightEntity> setRepWeightMap;
 
 
     public String getName() {
@@ -23,28 +21,27 @@ public class MoveEntity extends BaseEntity {
         this.name = name;
     }
 
-    public Integer getNumber() {
-        return number;
+    public Integer getMoveNumber() {
+        return moveNumber;
     }
 
-    public void setNumber(Integer number) {
-        this.number = number;
+    public void setMoveNumber(Integer moveNumber) {
+        this.moveNumber = moveNumber;
     }
 
-    public Map<Integer, Integer> getSetRepMap() {
-        return setRepMap;
+    public Integer getSets() {
+        return sets;
     }
 
-    public void setSetRepMap(Map<Integer, Integer> setRepMap) {
-        this.setRepMap = setRepMap;
+    public void setSets(Integer sets) {
+        this.sets = sets;
     }
 
-    public Map<Integer, Double> getSetWeightMap() {
-        return setWeightMap;
+    public Map<Integer, RepWeightEntity> getSetRepWeightMap() {
+        return setRepWeightMap;
     }
 
-    public void setSetWeightMap(Map<Integer, Double> setWeightMap) {
-
-        this.setWeightMap = setWeightMap;
+    public void setSetRepWeightMap(Map<Integer, RepWeightEntity> setRepWeightMap) {
+        this.setRepWeightMap = setRepWeightMap;
     }
 }

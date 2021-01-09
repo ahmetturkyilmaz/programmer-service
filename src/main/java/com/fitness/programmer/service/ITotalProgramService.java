@@ -7,12 +7,12 @@ import java.util.List;
 
 public interface ITotalProgramService {
 
-    List<TotalProgramDto> getAllTotalPrograms( String username);
+    List<TotalProgramDto> getAllTotalPrograms(String username);
 
 
     TotalProgramDto getTotalProgramById(String id) throws RequestException;
 
-    String postTotalProgram(TotalProgramDto totalProgramDto);
+    TotalProgramDto postTotalProgram(TotalProgramDto totalProgramDto);
 
     String updateTotalProgram(TotalProgramDto totalProgramDto) throws RequestException;
 }

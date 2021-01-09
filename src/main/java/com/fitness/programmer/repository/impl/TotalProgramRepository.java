@@ -37,12 +37,12 @@ public class TotalProgramRepository implements ITotalProgramRepository {
     }
 
     @Override
-    public String postTotalProgram(TotalProgramDto totalProgramDto) {
+    public TotalProgramDto postTotalProgram(TotalProgramDto totalProgramDto) {
         TotalProgramEntity totalProgramEntity = mapper.dtoToEntity(totalProgramDto);
         totalProgramEntity.setCreatedAt(new Date().getTime());
         TotalProgramEntity storedEntity = totalProgramRepositorySQL.save(totalProgramEntity);
 
-        return storedEntity.getId();
+        return mapper.entityToDto(storedEntity);
     }
 
     @Override

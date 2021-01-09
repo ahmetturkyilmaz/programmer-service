@@ -4,7 +4,7 @@ import com.fitness.programmer.model.enums.DayOfWeek;
 
 import java.util.List;
 
-public class DailyProgramEntity extends BaseEntity {
+public class DailyProgramEntity  {
     private String name;
 
     private DayOfWeek dayOfWeek;
