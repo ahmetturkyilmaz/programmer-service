@@ -1,17 +1,27 @@
 package com.fitness.programmer.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fitness.programmer.model.dto.RepWeightDto;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Map;
 
-public class MoveEntity {
+@Document(collection = "moveEntity")
+public class MoveEntity extends BaseEntity {
     private String name;
+    private String moveType;
+
     private Integer moveNumber;
     private Integer sets;
+    private Map<Integer, RepWeightDto> setRepWeightMap;
+    private Long time;
 
-    @JsonIgnore
-    private Map<Integer, RepWeightEntity> setRepWeightMap;
+    public String getMoveType() {
+        return moveType;
+    }
 
+    public void setMoveType(String moveType) {
+        this.moveType = moveType;
+    }
 
     public String getName() {
         return name;
@@ -29,6 +39,15 @@ public class MoveEntity {
         this.moveNumber = moveNumber;
     }
 
+    public Long getTime() {
+        return time;
+    }
+
+    public void setTime(Long time) {
+        this.time = time;
+    }
+
+
     public Integer getSets() {
         return sets;
     }
@@ -37,11 +56,12 @@ public class MoveEntity {
         this.sets = sets;
     }
 
-    public Map<Integer, RepWeightEntity> getSetRepWeightMap() {
+    public Map<Integer, RepWeightDto> getSetRepWeightMap() {
         return setRepWeightMap;
     }
 
-    public void setSetRepWeightMap(Map<Integer, RepWeightEntity> setRepWeightMap) {
+    public void setSetRepWeightMap(Map<Integer, RepWeightDto> setRepWeightMap) {
         this.setRepWeightMap = setRepWeightMap;
     }
+
 }

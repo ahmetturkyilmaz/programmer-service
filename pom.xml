@@ -9,12 +9,15 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.fitness</groupId>
+    <version>RELEASE</version>
     <artifactId>programmer-service</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
     <name>programmer</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
+        <docker.image.repo>qa-mongo</docker.image.repo>
+        <maven.build.timestamp.format>yyMMddHHmm</maven.build.timestamp.format>
+        <docker.image.prefix>registry.github.com</docker.image.prefix>
         <java.version>1.8</java.version>
         <org.mapstruct.version>1.4.1.Final</org.mapstruct.version>
     </properties>
@@ -57,6 +60,34 @@
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>dockerfile-maven-plugin</artifactId>
+                <version>1.4.7</version>
+                <executions>
+                    <execution>
+                        <id>build-image</id>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>tag-image-latest</id>
+                        <goals>
+                            <goal>tag</goal>
+                        </goals>
+                        <configuration>
+                            <tag>latest</tag>
+                        </configuration>
+                    </execution>
+                </executions>
+                <configuration>
+                    <repository>ahmetturkyilmaz/programmer-service</repository>
+                    <buildArgs>
+                        <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
+                    </buildArgs>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>

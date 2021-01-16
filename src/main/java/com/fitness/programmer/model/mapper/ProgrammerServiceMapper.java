@@ -1,6 +1,8 @@
 package com.fitness.programmer.model.mapper;
 
+import com.fitness.programmer.model.dto.MoveDto;
 import com.fitness.programmer.model.dto.TotalProgramDto;
+import com.fitness.programmer.model.entity.MoveEntity;
 import com.fitness.programmer.model.entity.TotalProgramEntity;
 import org.mapstruct.Mapper;
 
@@ -17,5 +19,12 @@ public interface ProgrammerServiceMapper {
 
     List<TotalProgramEntity> dtoToEntityTotalProgramEntityList(List<TotalProgramDto> totalProgramEntities);
 
+    MoveEntity dtoToEntity(MoveDto moveDto);
+
+    MoveDto entityToDto(MoveEntity moveEntity);
+
+    List<MoveDto> entityToDtoMoveEntityList(List<MoveEntity> moveEntity);
+
+    List<MoveEntity> dtoToEntityMoveEntityList(List<MoveDto> moveDto);
 
 }

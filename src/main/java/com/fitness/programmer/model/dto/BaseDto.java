@@ -6,6 +6,10 @@ public class BaseDto {
     private Long createdAt;
     private Long version;
 
+    public BaseDto() {
+
+    }
+
     public String getId() {
         return id;
     }

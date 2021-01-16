@@ -46,18 +46,12 @@ public class RequestBodyAdviceChain implements RequestBodyAdvice {
     @Override  // Set Created By or Updated By by request method
     public Object afterBodyRead(Object o, HttpInputMessage httpInputMessage, MethodParameter methodParameter, Type type,
                                 Class<? extends HttpMessageConverter<?>> aClass) {
-
         if (BaseDto.class.isAssignableFrom(o.getClass())) {
-
             HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
             String requestMethod = request.getMethod();
-
             String username = jwtUtils.getUsernameByJWT(request.getHeader(headerString).substring(7));
-
             if (HttpMethod.POST.name().equals(requestMethod)) {
-
                 ((BaseDto) o).setCreatedBy(username);
-
             }
         }
         return o;

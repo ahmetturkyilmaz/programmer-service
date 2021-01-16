@@ -12,7 +12,7 @@ public interface ITotalProgramService {
 
     TotalProgramDto getTotalProgramById(String id) throws RequestException;
 
-    TotalProgramDto postTotalProgram(TotalProgramDto totalProgramDto);
+    TotalProgramDto postTotalProgram(TotalProgramDto totalProgramDto) throws RequestException;
 
     String updateTotalProgram(TotalProgramDto totalProgramDto) throws RequestException;
 }

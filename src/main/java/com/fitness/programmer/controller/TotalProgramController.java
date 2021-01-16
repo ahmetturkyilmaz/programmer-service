@@ -33,7 +33,7 @@ public class TotalProgramController {
     }
 
     @PostMapping("/total-program")
-    public ResponseEntity<?> postTotalProgram(@RequestBody TotalProgramDto totalProgramDto) {
+    public ResponseEntity<?> postTotalProgram(@RequestBody TotalProgramDto totalProgramDto) throws RequestException {
         TotalProgramDto storedTotalProgram = totalProgramService.postTotalProgram(totalProgramDto);
         return ResponseEntity.ok().body(storedTotalProgram);
     }

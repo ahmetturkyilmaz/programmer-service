@@ -1,13 +1,15 @@
 package com.fitness.programmer.model.entity;
 
 import com.fitness.programmer.model.enums.DayOfWeek;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 
 import java.util.List;
 
-public class DailyProgramEntity  {
+public class DailyProgramEntity {
     private String name;
 
     private DayOfWeek dayOfWeek;
+    @DBRef
     private List<MoveEntity> moveSet;
 
 
