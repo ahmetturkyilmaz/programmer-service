@@ -61,5 +61,25 @@ public class TotalProgramService implements ITotalProgramService {
         return totalProgramRepository.updateTotalProgram(totalProgramDto);
     }
 
+    public void checkIfMoveSetsProper(TotalProgramDto totalProgramDto) throws RequestException {
+        TotalProgramDto storedTotalProgram = getTotalProgramById(totalProgramDto.getId());
+
+
+        if (!CollectionUtils.isEmpty(totalProgramDto.getWeeklyPrograms())) {
+            for (WeeklyProgramDto weeklyProgramDto : totalProgramDto.getWeeklyPrograms()) {
+                if (!CollectionUtils.isEmpty(weeklyProgramDto.getDailyPrograms()))
+                    for (DailyProgramDto dailyProgramDto : weeklyProgramDto.getDailyPrograms()) {
+                        if (!CollectionUtils.isEmpty(dailyProgramDto.getMoveSet())) {
+                            for (MoveDto moveDto : dailyProgramDto.getMoveSet()) {
+                                if (StringUtils.isEmpty(moveDto.getId())) {
+                                    String id = moveService.postMove(moveDto).getId();
+                                    moveDto.setId(id);
+                                }
+                            }
+                        }
+                    }
+            }
+        }
+    }
 
 }

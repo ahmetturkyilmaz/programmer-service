@@ -12,7 +12,7 @@ public class MoveEntity extends BaseEntity {
 
     private Integer moveNumber;
     private Integer sets;
-    private Map<Integer, RepWeightDto> setRepWeightMap;
+    private Map<Integer, RepWeightEntity> setRepWeightMap;
     private Long time;
 
     public String getMoveType() {
@@ -56,12 +56,11 @@ public class MoveEntity extends BaseEntity {
         this.sets = sets;
     }
 
-    public Map<Integer, RepWeightDto> getSetRepWeightMap() {
+    public Map<Integer, RepWeightEntity> getSetRepWeightMap() {
         return setRepWeightMap;
     }
 
-    public void setSetRepWeightMap(Map<Integer, RepWeightDto> setRepWeightMap) {
+    public void setSetRepWeightMap(Map<Integer, RepWeightEntity> setRepWeightMap) {
         this.setRepWeightMap = setRepWeightMap;
     }
-
 }

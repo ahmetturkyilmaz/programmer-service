@@ -1,16 +1,13 @@
 package com.fitness.programmer.repository.impl;
 
 import com.fitness.programmer.exception.RequestException;
-import com.fitness.programmer.model.dto.DailyProgramDto;
 import com.fitness.programmer.model.dto.TotalProgramDto;
-import com.fitness.programmer.model.dto.WeeklyProgramDto;
 import com.fitness.programmer.model.entity.TotalProgramEntity;
 import com.fitness.programmer.model.mapper.ProgrammerServiceMapper;
 import com.fitness.programmer.repository.ITotalProgramRepository;
 import com.fitness.programmer.repository.mongorepository.ITotalProgramRepositoryMongo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.util.CollectionUtils;
 
 import java.util.Date;
 import java.util.List;
@@ -56,5 +53,7 @@ public class TotalProgramRepository implements ITotalProgramRepository {
         TotalProgramEntity totalProgramEntity = totalProgramRepositorySQL.save(mapper.dtoToEntity(totalProgramDto));
         return totalProgramEntity.getId();
     }
+
+
 
 }
