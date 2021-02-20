@@ -4,11 +4,9 @@ import com.fitness.programmer.exception.RequestException;
 import com.fitness.programmer.model.dto.WeeklyProgramDto;
 import com.fitness.programmer.repository.IWeeklyProgramRepository;
 import com.fitness.programmer.service.IMoveService;
-import com.fitness.programmer.service.ITotalProgramService;
 import com.fitness.programmer.service.IWeeklyProgramService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
 import java.util.Collections;
@@ -23,9 +21,6 @@ public class WeeklyProgramService implements IWeeklyProgramService {
 
     @Autowired
     IWeeklyProgramRepository weeklyProgramRepository;
-
-    @Autowired
-    ITotalProgramService totalProgramService;
 
     @Override
     public List<WeeklyProgramDto> getAllByTotalProgramId(String totalProgramId) {
@@ -45,19 +40,12 @@ public class WeeklyProgramService implements IWeeklyProgramService {
     }
 
     @Override
-    @Transactional
     public WeeklyProgramDto postWeeklyProgram(WeeklyProgramDto weeklyProgramDto) {
         return weeklyProgramRepository.postWeeklyProgram(weeklyProgramDto);
     }
 
     @Override
     public void deleteWeeklyProgramById(String id) throws RequestException {
-        WeeklyProgramDto weeklyProgramDto = getById(id);
-        weeklyProgramDto.getDailyPrograms()
-                .stream()
-                .flatMap(dailyProgramDto -> dailyProgramDto.getMoveSet().stream())
-                .forEach(moveDto -> moveService.deleteMove(moveDto.getId()));
-        totalProgramService.updateTotalProgramWithDeletedWeeklyProgram(id);
         weeklyProgramRepository.deleteWeeklyProgramById(id);
     }
 
@@ -65,7 +53,4 @@ public class WeeklyProgramService implements IWeeklyProgramService {
     public WeeklyProgramDto updateWeeklyProgram(WeeklyProgramDto weeklyProgramDto) throws RequestException {
         return weeklyProgramRepository.updateWeeklyProgram(weeklyProgramDto);
     }
-
-
-
 }

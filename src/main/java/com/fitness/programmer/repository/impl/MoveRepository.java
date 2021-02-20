@@ -32,11 +32,7 @@ public class MoveRepository implements IMoveRepository {
     @Override
     public MoveDto findById(String id) throws RequestException {
         Optional<MoveEntity> storedEntity = moveTypeRepositoryMongo.findById(id);
-        if (!storedEntity.isPresent()) {
-            return null;
-        }
-        MoveDto moveDto = mapper.entityToDto(storedEntity.get());
-        return moveDto;
+        return storedEntity.map(moveEntity -> mapper.entityToDto(moveEntity)).orElse(null);
     }
 
 

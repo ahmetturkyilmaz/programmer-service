@@ -16,5 +16,4 @@ public interface ITotalProgramService {
 
     String updateTotalProgramHandleDBRefs(TotalProgramDto totalProgramDto) throws RequestException;
 
-    void updateTotalProgramWithDeletedWeeklyProgram(String id) throws RequestException;
 }

@@ -8,7 +8,6 @@ import com.fitness.programmer.repository.IWeeklyProgramRepository;
 import com.fitness.programmer.repository.mongorepository.IWeeklyProgramRepositoryMongo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.util.CollectionUtils;
 
 import java.util.Date;
 import java.util.List;
@@ -16,6 +15,7 @@ import java.util.Optional;
 
 @Repository
 public class WeeklyProgramRepository implements IWeeklyProgramRepository {
+
     @Autowired
     private IWeeklyProgramRepositoryMongo repository;
 
@@ -57,6 +57,4 @@ public class WeeklyProgramRepository implements IWeeklyProgramRepository {
     public void deleteWeeklyProgramById(String id) {
         repository.deleteById(id);
     }
-
-
 }

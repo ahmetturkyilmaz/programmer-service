@@ -9,9 +9,8 @@ public class DailyProgramEntity {
     private String name;
 
     private DayOfWeek dayOfWeek;
-    @DBRef
-    private List<MoveEntity> moveSet;
 
+    private List<MoveEntity> moveSet;
 
     public DailyProgramEntity() {
     }
@@ -22,32 +21,6 @@ public class DailyProgramEntity {
 
     public void setDayOfWeek(DayOfWeek dayOfWeek) {
         this.dayOfWeek = dayOfWeek;
-/*        String day = dayOfWeek.toString();
-        switch (day) {
-            case "MONDAY":
-                this.dayOfWeek = DayOfWeek.MONDAY;
-                break;
-            case "TUESDAY":
-                this.dayOfWeek = DayOfWeek.TUESDAY;
-                break;
-            case "WEDNESDAY":
-                this.dayOfWeek = DayOfWeek.WEDNESDAY;
-                break;
-            case "THURSDAY":
-                this.dayOfWeek = DayOfWeek.THURSDAY;
-                break;
-            case "FRIDAY":
-                this.dayOfWeek = DayOfWeek.FRIDAY;
-                break;
-            case "SATURDAY":
-                this.dayOfWeek = DayOfWeek.SATURDAY;
-                break;
-            case "SUNDAY":
-                this.dayOfWeek = DayOfWeek.SUNDAY;
-                break;
-            default:
-                throw new DayNotFoundException(day);
-        }*/
     }
 
     public String getName() {
