@@ -40,7 +40,7 @@ public class TotalProgramController {
 
     @PutMapping("/total-program")
     public ResponseEntity<?> updateTotalProgram(@RequestBody TotalProgramDto totalProgramDto) throws RequestException {
-        String id = totalProgramService.updateTotalProgram(totalProgramDto);
+        String id = totalProgramService.updateTotalProgramHandleDBRefs(totalProgramDto);
         return ResponseEntity.ok(id);
     }
 }

@@ -2,8 +2,10 @@ package com.fitness.programmer.model.mapper;
 
 import com.fitness.programmer.model.dto.MoveDto;
 import com.fitness.programmer.model.dto.TotalProgramDto;
+import com.fitness.programmer.model.dto.WeeklyProgramDto;
 import com.fitness.programmer.model.entity.MoveEntity;
 import com.fitness.programmer.model.entity.TotalProgramEntity;
+import com.fitness.programmer.model.entity.WeeklyProgramEntity;
 import org.mapstruct.Mapper;
 
 import java.util.List;
@@ -18,6 +20,14 @@ public interface ProgrammerServiceMapper {
     List<TotalProgramDto> entityToDtoTotalProgramEntityList(List<TotalProgramEntity> totalProgramEntities);
 
     List<TotalProgramEntity> dtoToEntityTotalProgramEntityList(List<TotalProgramDto> totalProgramEntities);
+
+    WeeklyProgramEntity dtoToEntity(WeeklyProgramDto weeklyProgramDto);
+
+    WeeklyProgramDto entityToDto(WeeklyProgramEntity totalProgramEntity);
+
+    List<WeeklyProgramDto> entityToDtoWeeklyProgramEntityList(List<WeeklyProgramEntity> totalProgramEntities);
+
+    List<WeeklyProgramEntity> dtoToEntityWeeklyProgramEntityList(List<WeeklyProgramDto> totalProgramEntities);
 
     MoveEntity dtoToEntity(MoveDto moveDto);
 

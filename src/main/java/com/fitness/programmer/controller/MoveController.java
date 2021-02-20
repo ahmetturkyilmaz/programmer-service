@@ -47,6 +47,6 @@ public class MoveController {
     @DeleteMapping("/move/{id}")
     public ResponseEntity<?> deleteMove(@PathVariable String id) throws RequestException {
         String storedId = moveService.deleteMove(id);
-        return ResponseEntity.ok(id);
+        return ResponseEntity.ok(storedId);
     }
 }

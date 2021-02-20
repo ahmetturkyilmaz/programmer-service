@@ -1,7 +1,5 @@
 package com.fitness.programmer.model.dto;
 
-import java.util.Map;
-
 public class RepWeightDto {
     private Double rep;
     private Double weight;

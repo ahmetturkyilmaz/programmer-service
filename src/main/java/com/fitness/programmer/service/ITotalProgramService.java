@@ -14,5 +14,7 @@ public interface ITotalProgramService {
 
     TotalProgramDto postTotalProgram(TotalProgramDto totalProgramDto) throws RequestException;
 
-    String updateTotalProgram(TotalProgramDto totalProgramDto) throws RequestException;
+    String updateTotalProgramHandleDBRefs(TotalProgramDto totalProgramDto) throws RequestException;
+
+    void updateTotalProgramWithDeletedWeeklyProgram(String id) throws RequestException;
 }

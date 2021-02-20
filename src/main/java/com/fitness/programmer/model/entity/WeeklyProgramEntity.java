@@ -1,14 +1,15 @@
 package com.fitness.programmer.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.springframework.util.CollectionUtils;
-
 import java.util.List;
 
-public class WeeklyProgramEntity  {
+public class WeeklyProgramEntity extends BaseEntity {
     private String name;
 
     private List<DailyProgramEntity> dailyPrograms;
+
+    private String weekNumber;
+
+    private String totalProgramId;
 
     public String getName() {
         return name;
@@ -27,4 +28,19 @@ public class WeeklyProgramEntity  {
 
     }
 
+    public String getTotalProgramId() {
+        return totalProgramId;
+    }
+
+    public void setTotalProgramId(String totalProgramId) {
+        this.totalProgramId = totalProgramId;
+    }
+
+    public String getWeekNumber() {
+        return weekNumber;
+    }
+
+    public void setWeekNumber(String weekNumber) {
+        this.weekNumber = weekNumber;
+    }
 }

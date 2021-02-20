@@ -7,29 +7,35 @@ import com.fitness.programmer.model.mapper.ProgrammerServiceMapper;
 import com.fitness.programmer.repository.ITotalProgramRepository;
 import com.fitness.programmer.repository.mongorepository.ITotalProgramRepositoryMongo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
+import static org.springframework.data.mongodb.core.query.Criteria.where;
+
 @Repository
 public class TotalProgramRepository implements ITotalProgramRepository {
     @Autowired
-    private ITotalProgramRepositoryMongo totalProgramRepositorySQL;
+    private ITotalProgramRepositoryMongo totalProgramRepositoryMongo;
     @Autowired
     ProgrammerServiceMapper mapper;
+    @Autowired
+    MongoTemplate mongoTemplate;
 
     @Override
     public List<TotalProgramDto> getAllTotalPrograms(String username) {
-        List<TotalProgramEntity> totalProgramEntities = totalProgramRepositorySQL.findByUsername(username);
+        List<TotalProgramEntity> totalProgramEntities = totalProgramRepositoryMongo.findByUsername(username);
 
         return mapper.entityToDtoTotalProgramEntityList(totalProgramEntities);
     }
 
     @Override
     public TotalProgramDto getTotalProgramById(String id) throws RequestException {
-        Optional<TotalProgramEntity> totalProgramEntity = totalProgramRepositorySQL.findById(id);
+        Optional<TotalProgramEntity> totalProgramEntity = totalProgramRepositoryMongo.findById(id);
         if (!totalProgramEntity.isPresent()) {
             throw new RequestException("Total program is not found");
         }
@@ -41,7 +47,7 @@ public class TotalProgramRepository implements ITotalProgramRepository {
 
         TotalProgramEntity totalProgramEntity = mapper.dtoToEntity(totalProgramDto);
         totalProgramEntity.setCreatedAt(new Date().getTime());
-        TotalProgramEntity storedEntity = totalProgramRepositorySQL.save(totalProgramEntity);
+        TotalProgramEntity storedEntity = totalProgramRepositoryMongo.save(totalProgramEntity);
 
         return mapper.entityToDto(storedEntity);
     }
@@ -50,10 +56,17 @@ public class TotalProgramRepository implements ITotalProgramRepository {
     public String updateTotalProgram(TotalProgramDto totalProgramDto) throws RequestException {
         TotalProgramDto storedProgram = getTotalProgramById(totalProgramDto.getId());
         totalProgramDto.setVersion(storedProgram.getVersion());
-        TotalProgramEntity totalProgramEntity = totalProgramRepositorySQL.save(mapper.dtoToEntity(totalProgramDto));
+        TotalProgramEntity totalProgramEntity = totalProgramRepositoryMongo.save(mapper.dtoToEntity(totalProgramDto));
         return totalProgramEntity.getId();
     }
 
+    @Override
+    public List<TotalProgramDto> getTotalProgramByWeeklyProgramId(String id) {
+        Query query = new Query();
+        query.addCriteria(where("weeklyPrograms.$id").is(id));
+
+        return mapper.entityToDtoTotalProgramEntityList(mongoTemplate.find(query, TotalProgramEntity.class));
+    }
 
 
 }
