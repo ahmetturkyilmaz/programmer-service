@@ -31,7 +31,7 @@ public class WeeklyProgramRepository implements IWeeklyProgramRepository {
     @Override
     public WeeklyProgramDto postWeeklyProgram(WeeklyProgramDto weeklyProgramDto) {
         WeeklyProgramEntity weeklyProgramEntity = mapper.dtoToEntity(weeklyProgramDto);
-        weeklyProgramEntity.setCreatedAt(new Date().getTime());
+        weeklyProgramEntity.setCreatedAt(new Date());
         WeeklyProgramEntity storedEntity = repository.save(weeklyProgramEntity);
         return mapper.entityToDto(storedEntity);
     }

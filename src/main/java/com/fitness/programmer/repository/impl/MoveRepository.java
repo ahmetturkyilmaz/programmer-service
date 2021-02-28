@@ -46,7 +46,7 @@ public class MoveRepository implements IMoveRepository {
     @Override
     public MoveDto postMove(MoveDto moveDto) {
         MoveEntity entity = mapper.dtoToEntity(moveDto);
-        entity.setCreatedAt(new Date().getTime());
+        entity.setCreatedAt(new Date());
         MoveEntity storedEntity = moveTypeRepositoryMongo.save(entity);
         return mapper.entityToDto(storedEntity);
     }

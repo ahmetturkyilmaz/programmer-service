@@ -46,7 +46,7 @@ public class TotalProgramRepository implements ITotalProgramRepository {
     public TotalProgramDto postTotalProgram(TotalProgramDto totalProgramDto) {
 
         TotalProgramEntity totalProgramEntity = mapper.dtoToEntity(totalProgramDto);
-        totalProgramEntity.setCreatedAt(new Date().getTime());
+        totalProgramEntity.setCreatedAt(new Date());
         TotalProgramEntity storedEntity = totalProgramRepositoryMongo.save(totalProgramEntity);
 
         return mapper.entityToDto(storedEntity);
