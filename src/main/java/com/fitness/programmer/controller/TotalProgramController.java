@@ -2,6 +2,7 @@ package com.fitness.programmer.controller;
 
 import com.fitness.programmer.configuration_handlers.JWTUtils;
 import com.fitness.programmer.exception.RequestException;
+import com.fitness.programmer.model.dto.ProgramCreateRequestDto;
 import com.fitness.programmer.model.dto.TotalProgramDto;
 import com.fitness.programmer.service.ITotalProgramService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,8 +34,8 @@ public class TotalProgramController {
     }
 
     @PostMapping("/total-program")
-    public ResponseEntity<?> postTotalProgram(@RequestBody TotalProgramDto totalProgramDto) throws RequestException {
-        TotalProgramDto storedTotalProgram = totalProgramService.postTotalProgram(totalProgramDto);
+    public ResponseEntity<?> postOneWeekTotalProgram(@RequestBody ProgramCreateRequestDto requestDto) throws RequestException {
+        TotalProgramDto storedTotalProgram = totalProgramService.postTotalProgram(requestDto);
         return ResponseEntity.ok().body(storedTotalProgram);
     }
 

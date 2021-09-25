@@ -6,7 +6,6 @@ import java.util.List;
 
 public class TotalProgramDto extends BaseDto {
     private String programName;
-    private ProgramWeekType programWeekType;
     private List<WeeklyProgramDto> weeklyPrograms;
 
     public String getProgramName() {
@@ -15,14 +14,6 @@ public class TotalProgramDto extends BaseDto {
 
     public void setProgramName(String programName) {
         this.programName = programName;
-    }
-
-    public ProgramWeekType getProgramWeekType() {
-        return programWeekType;
-    }
-
-    public void setProgramWeekType(ProgramWeekType programWeekType) {
-        this.programWeekType = programWeekType;
     }
 
     public List<WeeklyProgramDto> getWeeklyPrograms() {

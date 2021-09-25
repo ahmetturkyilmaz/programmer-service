@@ -9,7 +9,6 @@ public class WeeklyProgramEntity extends BaseEntity {
 
     private String weekNumber;
 
-    private String totalProgramId;
 
     public String getName() {
         return name;
@@ -26,14 +25,6 @@ public class WeeklyProgramEntity extends BaseEntity {
     public void setDailyPrograms(List<DailyProgramEntity> dailyProgram) {
         this.dailyPrograms = dailyProgram;
 
-    }
-
-    public String getTotalProgramId() {
-        return totalProgramId;
-    }
-
-    public void setTotalProgramId(String totalProgramId) {
-        this.totalProgramId = totalProgramId;
     }
 
     public String getWeekNumber() {

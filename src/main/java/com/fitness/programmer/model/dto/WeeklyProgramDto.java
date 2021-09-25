@@ -1,6 +1,7 @@
 package com.fitness.programmer.model.dto;
 
-import com.sun.istack.internal.NotNull;
+
+import org.springframework.lang.NonNull;
 
 import java.util.List;
 
@@ -12,8 +13,6 @@ public class WeeklyProgramDto extends BaseDto {
 
     private Integer weekNumber;
 
-    @NotNull
-    private String totalProgramId;
 
     public String getName() {
         return name;
@@ -39,11 +38,4 @@ public class WeeklyProgramDto extends BaseDto {
         this.weekNumber = weekNumber;
     }
 
-    public String getTotalProgramId() {
-        return totalProgramId;
-    }
-
-    public void setTotalProgramId(String totalProgramId) {
-        this.totalProgramId = totalProgramId;
-    }
 }
