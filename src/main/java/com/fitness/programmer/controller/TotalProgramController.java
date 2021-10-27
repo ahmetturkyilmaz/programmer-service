@@ -13,8 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/programs")
-public class TotalProgramController {
+@RequestMapping("/total-program")
+public class TotalProgramController extends BaseController {
 
     @Autowired
     ITotalProgramService totalProgramService;
@@ -22,24 +22,24 @@ public class TotalProgramController {
     @Autowired
     JWTUtils jwtUtils;
 
-    @GetMapping("/total-program")
-    public List<TotalProgramDto> getAllTotalPrograms(HttpServletRequest httpServletRequest) {
+    @GetMapping
+    public List<TotalProgramDto> getAllTotalPrograms(HttpServletRequest httpServletRequest) throws RequestException {
         String username = jwtUtils.getUsernameByJWT(httpServletRequest.getHeader("Authorization").substring(7));
         return totalProgramService.getAllTotalPrograms(username);
     }
 
-    @GetMapping("/total-program/{id}")
+    @GetMapping("/{id}")
     public TotalProgramDto getTotalProgramById(@PathVariable String id) throws RequestException {
         return totalProgramService.getTotalProgramById(id);
     }
 
-    @PostMapping("/total-program")
+    @PostMapping
     public ResponseEntity<?> postOneWeekTotalProgram(@RequestBody ProgramCreateRequestDto requestDto) throws RequestException {
         TotalProgramDto storedTotalProgram = totalProgramService.postTotalProgram(requestDto);
         return ResponseEntity.ok().body(storedTotalProgram);
     }
 
-    @PutMapping("/total-program")
+    @PutMapping
     public ResponseEntity<?> updateTotalProgram(@RequestBody TotalProgramDto totalProgramDto) throws RequestException {
         String id = totalProgramService.updateTotalProgramHandleDBRefs(totalProgramDto);
         return ResponseEntity.ok(id);

@@ -2,7 +2,7 @@ package com.fitness.programmer.model.dto;
 
 import org.springframework.lang.NonNull;
 
-public class ProgramCreateRequestDto {
+public class ProgramCreateRequestDto extends BaseDto{
     @NonNull
     private String nameOfProgram;
     @NonNull

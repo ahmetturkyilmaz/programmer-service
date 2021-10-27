@@ -1,11 +1,9 @@
 package com.fitness.programmer.model.entity;
 
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Map;
 
-@Document(collection = "moveEntity")
-public class MoveEntity extends BaseEntity {
+public class MoveEntity {
 
     private String name;
 
@@ -18,6 +16,16 @@ public class MoveEntity extends BaseEntity {
     private Map<Integer, RepWeightEntity> setRepWeightMap;
 
     private Long time;
+
+    private String RPM;
+
+    public String getRPM() {
+        return RPM;
+    }
+
+    public void setRPM(String RPM) {
+        this.RPM = RPM;
+    }
 
     public String getMoveType() {
         return moveType;

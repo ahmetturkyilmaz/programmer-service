@@ -2,16 +2,26 @@ package com.fitness.programmer.model.dto;
 
 import java.util.Map;
 
-public class MoveDto extends BaseDto {
+public class MoveDto {
     private String name;
     private String moveType;
     private Integer moveNumber;
     private Long time;
     private Integer sets;
     private Map<Integer, RepWeightDto> setRepWeightMap;
+    private String RPM;
+
 
     public MoveDto() {
 
+    }
+
+    public String getRPM() {
+        return RPM;
+    }
+
+    public void setRPM(String RPM) {
+        this.RPM = RPM;
     }
 
     public Long getTime() {

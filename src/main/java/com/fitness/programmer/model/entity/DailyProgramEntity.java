@@ -1,26 +1,23 @@
 package com.fitness.programmer.model.entity;
 
 import com.fitness.programmer.model.enums.DayOfWeek;
-import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
-public class DailyProgramEntity {
+@Document(collection = "DailyProgramEntity")
+public class DailyProgramEntity extends BaseEntity {
     private String name;
 
     private DayOfWeek dayOfWeek;
 
     private List<MoveEntity> moveSet;
 
+    private String totalProgramId;
+
+    private Integer weekNumber;
+
     public DailyProgramEntity() {
-    }
-
-    public DayOfWeek getDayOfWeek() {
-        return dayOfWeek;
-    }
-
-    public void setDayOfWeek(DayOfWeek dayOfWeek) {
-        this.dayOfWeek = dayOfWeek;
     }
 
     public String getName() {
@@ -31,6 +28,14 @@ public class DailyProgramEntity {
         this.name = name;
     }
 
+    public DayOfWeek getDayOfWeek() {
+        return dayOfWeek;
+    }
+
+    public void setDayOfWeek(DayOfWeek dayOfWeek) {
+        this.dayOfWeek = dayOfWeek;
+    }
+
     public List<MoveEntity> getMoveSet() {
         return moveSet;
     }
@@ -39,4 +44,19 @@ public class DailyProgramEntity {
         this.moveSet = moveSet;
     }
 
+    public String getTotalProgramId() {
+        return totalProgramId;
+    }
+
+    public void setTotalProgramId(String totalProgramId) {
+        this.totalProgramId = totalProgramId;
+    }
+
+    public Integer getWeekNumber() {
+        return weekNumber;
+    }
+
+    public void setWeekNumber(Integer weekNumber) {
+        this.weekNumber = weekNumber;
+    }
 }

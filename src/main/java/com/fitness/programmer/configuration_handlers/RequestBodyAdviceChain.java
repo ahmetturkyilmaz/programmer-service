@@ -1,5 +1,6 @@
 package com.fitness.programmer.configuration_handlers;
 
+import com.fitness.programmer.exception.UserNotAuthorizedException;
 import com.fitness.programmer.model.dto.BaseDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -46,12 +47,20 @@ public class RequestBodyAdviceChain implements RequestBodyAdvice {
     @Override  // Set Created By or Updated By by request method
     public Object afterBodyRead(Object o, HttpInputMessage httpInputMessage, MethodParameter methodParameter, Type type,
                                 Class<? extends HttpMessageConverter<?>> aClass) {
-        if (BaseDto.class.isAssignableFrom(o.getClass())) {
-            HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
-            String requestMethod = request.getMethod();
-            String username = jwtUtils.getUsernameByJWT(request.getHeader(headerString).substring(7));
-            if (HttpMethod.POST.name().equals(requestMethod)) {
-                ((BaseDto) o).setCreatedBy(username);
+        try {
+            if (BaseDto.class.isAssignableFrom(o.getClass())) {
+                HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+                String requestMethod = request.getMethod();
+                String username = jwtUtils.getUsernameByJWT(request.getHeader(headerString).substring(7));
+                if (HttpMethod.POST.name().equals(requestMethod)) {
+                    ((BaseDto) o).setCreatedBy(username);
+                }
+            }
+        } catch (Exception ex) {
+            try {
+                throw new UserNotAuthorizedException("User not Authorized", 400);
+            } catch (UserNotAuthorizedException e) {
+                e.printStackTrace();
             }
         }
         return o;

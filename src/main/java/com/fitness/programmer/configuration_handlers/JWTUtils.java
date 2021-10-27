@@ -1,5 +1,6 @@
 package com.fitness.programmer.configuration_handlers;
 
+import com.fitness.programmer.exception.UserNotAuthorizedException;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.MalformedJwtException;
@@ -19,8 +20,13 @@ public class JWTUtils {
     private String jwtSecret;
 
 
-    public String getUsernameByJWT(String token) {
-        return Jwts.parser().setSigningKey(jwtSecret.getBytes(StandardCharsets.UTF_8)).parseClaimsJws(token).getBody().getSubject();
+    public String getUsernameByJWT(String token) throws UserNotAuthorizedException {
+        try {
+            return Jwts.parser().setSigningKey(jwtSecret.getBytes(StandardCharsets.UTF_8)).parseClaimsJws(token).getBody().getSubject();
+
+        }catch (Exception e) {
+            throw new UserNotAuthorizedException("User not Authorized", 400);
+        }
     }
 
     public boolean validateJwtToken(String authToken) {

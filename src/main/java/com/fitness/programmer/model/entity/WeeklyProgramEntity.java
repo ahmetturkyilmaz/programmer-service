@@ -1,13 +1,9 @@
 package com.fitness.programmer.model.entity;
 
-import java.util.List;
-
-public class WeeklyProgramEntity extends BaseEntity {
+public class WeeklyProgramEntity {
     private String name;
 
-    private List<DailyProgramEntity> dailyPrograms;
-
-    private String weekNumber;
+    private Integer weekNumber;
 
 
     public String getName() {
@@ -18,20 +14,11 @@ public class WeeklyProgramEntity extends BaseEntity {
         this.name = name;
     }
 
-    public List<DailyProgramEntity> getDailyPrograms() {
-        return dailyPrograms;
-    }
-
-    public void setDailyPrograms(List<DailyProgramEntity> dailyProgram) {
-        this.dailyPrograms = dailyProgram;
-
-    }
-
-    public String getWeekNumber() {
+    public Integer getWeekNumber() {
         return weekNumber;
     }
 
-    public void setWeekNumber(String weekNumber) {
+    public void setWeekNumber(Integer weekNumber) {
         this.weekNumber = weekNumber;
     }
 }

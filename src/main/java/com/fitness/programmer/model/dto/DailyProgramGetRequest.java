@@ -1,23 +1,13 @@
 package com.fitness.programmer.model.dto;
 
 import com.fitness.programmer.model.enums.DayOfWeek;
-import org.springframework.lang.NonNull;
 
-import java.util.List;
-
-public class DailyProgramDto extends BaseDto{
-    private String name;
-    @NonNull
-    private DayOfWeek dayOfWeek;
-    private List<MoveDto> moveSet;
-    @NonNull
+public class DailyProgramGetRequest {
     private String totalProgramId;
-    @NonNull
+
     private Integer weekNumber;
 
-    public DailyProgramDto() {
-
-    }
+    private DayOfWeek dayOfWeek;
 
     public String getTotalProgramId() {
         return totalProgramId;
@@ -42,21 +32,4 @@ public class DailyProgramDto extends BaseDto{
     public void setDayOfWeek(DayOfWeek dayOfWeek) {
         this.dayOfWeek = dayOfWeek;
     }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public List<MoveDto> getMoveSet() {
-        return moveSet;
-    }
-
-    public void setMoveSet(List<MoveDto> moveSet) {
-        this.moveSet = moveSet;
-    }
-
 }
