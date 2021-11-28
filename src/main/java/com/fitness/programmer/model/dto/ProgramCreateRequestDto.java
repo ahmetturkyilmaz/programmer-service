@@ -8,6 +8,8 @@ public class ProgramCreateRequestDto extends BaseDto{
     @NonNull
     private int numberOfWeeks;
 
+    private boolean isActive;
+
     public String getNameOfProgram() {
         return nameOfProgram;
     }
@@ -22,5 +24,13 @@ public class ProgramCreateRequestDto extends BaseDto{
 
     public void setNumberOfWeeks(int numberOfWeeks) {
         this.numberOfWeeks = numberOfWeeks;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
     }
 }

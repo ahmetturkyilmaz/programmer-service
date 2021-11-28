@@ -4,6 +4,7 @@ import com.fitness.programmer.exception.DailyProgramNotFoundException;
 import com.fitness.programmer.exception.RequestException;
 import com.fitness.programmer.model.dto.DailyProgramDto;
 import com.fitness.programmer.model.entity.DailyProgramEntity;
+import com.fitness.programmer.model.enums.DayOfWeek;
 import com.fitness.programmer.model.mapper.ProgrammerServiceMapper;
 import com.fitness.programmer.repository.IDailyProgramRepository;
 import com.fitness.programmer.repository.mongorepository.IDailyProgramRepositoryMongo;
@@ -35,6 +36,17 @@ public class DailyProgramRepository implements IDailyProgramRepository {
     @Override
     public List<DailyProgramDto> getAllDailyProgramsInTotalProgram(String username, String totalProgramId) {
         return mapper.entityToDtoDailyProgramEntityList(dailyProgramRepositoryMongo.findAllByTotalProgram(username, totalProgramId));
+    }
+
+    @Override
+    public DailyProgramDto getOneInWeek(String totalProgramId, Integer weekNumber, DayOfWeek dayOfWeek, String username) throws DailyProgramNotFoundException {
+        Optional<DailyProgramEntity> dailyProgramEntity = dailyProgramRepositoryMongo.getOneInWeek(username,totalProgramId,weekNumber,dayOfWeek);
+        if (!dailyProgramEntity.isPresent()) {
+            throw new DailyProgramNotFoundException();
+        }
+
+
+        return null;
     }
 
     @Override

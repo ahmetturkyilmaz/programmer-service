@@ -1,8 +1,10 @@
 package com.fitness.programmer.model.entity;
 
-public class RepWeightEntity {
+
+public class SetInfo {
     private Double rep;
     private Double weight;
+    private String RPM;
 
     public Double getRep() {
         return rep;
@@ -19,4 +21,13 @@ public class RepWeightEntity {
     public void setWeight(Double weight) {
         this.weight = weight;
     }
+
+    public String getRPM() {
+        return RPM;
+    }
+
+    public void setRPM(String RPM) {
+        this.RPM = RPM;
+    }
+
 }

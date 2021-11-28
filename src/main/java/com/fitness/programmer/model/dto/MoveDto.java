@@ -8,20 +8,11 @@ public class MoveDto {
     private Integer moveNumber;
     private Long time;
     private Integer sets;
-    private Map<Integer, RepWeightDto> setRepWeightMap;
-    private String RPM;
+    private Map<Integer, SetInfoDto> setInfoMap;
 
 
     public MoveDto() {
 
-    }
-
-    public String getRPM() {
-        return RPM;
-    }
-
-    public void setRPM(String RPM) {
-        this.RPM = RPM;
     }
 
     public Long getTime() {
@@ -64,11 +55,11 @@ public class MoveDto {
         this.sets = sets;
     }
 
-    public Map<Integer, RepWeightDto> getSetRepWeightMap() {
-        return setRepWeightMap;
+    public Map<Integer, SetInfoDto> getSetInfoMap() {
+        return setInfoMap;
     }
 
-    public void setSetRepWeightMap(Map<Integer, RepWeightDto> setRepWeightMap) {
-        this.setRepWeightMap = setRepWeightMap;
+    public void setSetInfoMap(Map<Integer, SetInfoDto> setInfoMap) {
+        this.setInfoMap = setInfoMap;
     }
 }

@@ -11,7 +11,7 @@ public class DailyProgramEntity extends BaseEntity {
 
     private DayOfWeek dayOfWeek;
 
-    private List<MoveEntity> moveSet;
+    private List<Move> moveSet;
 
     private String totalProgramId;
 
@@ -36,11 +36,11 @@ public class DailyProgramEntity extends BaseEntity {
         this.dayOfWeek = dayOfWeek;
     }
 
-    public List<MoveEntity> getMoveSet() {
+    public List<Move> getMoveSet() {
         return moveSet;
     }
 
-    public void setMoveSet(List<MoveEntity> moveSet) {
+    public void setMoveSet(List<Move> moveSet) {
         this.moveSet = moveSet;
     }
 

@@ -1,8 +1,9 @@
 package com.fitness.programmer.model.dto;
 
-public class RepWeightDto {
+public class SetInfoDto {
     private Double rep;
     private Double weight;
+    private String RPM;
 
     public Double getRep() {
         return rep;
@@ -20,4 +21,11 @@ public class RepWeightDto {
         this.weight = weight;
     }
 
+    public String getRPM() {
+        return RPM;
+    }
+
+    public void setRPM(String RPM) {
+        this.RPM = RPM;
+    }
 }

@@ -1,7 +1,5 @@
 package com.fitness.programmer.model.entity;
 
-import com.fitness.programmer.model.dto.WeeklyProgramDto;
-import com.fitness.programmer.model.enums.ProgramWeekType;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
@@ -9,8 +7,9 @@ import java.util.List;
 @Document(collection = "TotalProgramEntity")
 public class TotalProgramEntity extends BaseEntity {
     private String programName;
-    private ProgramWeekType programWeekType;
-    private List<WeeklyProgramEntity> weeklyPrograms;
+    private List<WeeklyProgram> weeklyPrograms;
+    private boolean isActive;
+    private int orderNumber;
 
     public TotalProgramEntity() {
 
@@ -24,19 +23,28 @@ public class TotalProgramEntity extends BaseEntity {
         this.programName = programName;
     }
 
-    public ProgramWeekType getProgramWeekType() {
-        return programWeekType;
-    }
 
-    public void setProgramWeekType(ProgramWeekType programWeekType) {
-        this.programWeekType = programWeekType;
-    }
-
-    public List<WeeklyProgramEntity> getWeeklyPrograms() {
+    public List<WeeklyProgram> getWeeklyPrograms() {
         return weeklyPrograms;
     }
 
-    public void setWeeklyPrograms(List<WeeklyProgramEntity> weeklyPrograms) {
+    public void setWeeklyPrograms(List<WeeklyProgram> weeklyPrograms) {
         this.weeklyPrograms = weeklyPrograms;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
+    }
+
+    public int getOrderNumber() {
+        return orderNumber;
+    }
+
+    public void setOrderNumber(int orderNumber) {
+        this.orderNumber = orderNumber;
     }
 }

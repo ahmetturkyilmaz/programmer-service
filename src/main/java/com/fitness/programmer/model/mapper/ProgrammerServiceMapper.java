@@ -5,9 +5,9 @@ import com.fitness.programmer.model.dto.MoveDto;
 import com.fitness.programmer.model.dto.TotalProgramDto;
 import com.fitness.programmer.model.dto.WeeklyProgramDto;
 import com.fitness.programmer.model.entity.DailyProgramEntity;
-import com.fitness.programmer.model.entity.MoveEntity;
+import com.fitness.programmer.model.entity.Move;
 import com.fitness.programmer.model.entity.TotalProgramEntity;
-import com.fitness.programmer.model.entity.WeeklyProgramEntity;
+import com.fitness.programmer.model.entity.WeeklyProgram;
 import org.mapstruct.Mapper;
 
 import java.util.List;
@@ -23,13 +23,13 @@ public interface ProgrammerServiceMapper {
 
     List<TotalProgramEntity> dtoToEntityTotalProgramEntityList(List<TotalProgramDto> totalProgramEntities);
 
-    WeeklyProgramEntity dtoToEntity(WeeklyProgramDto weeklyProgramDto);
+    WeeklyProgram dtoToEntity(WeeklyProgramDto weeklyProgramDto);
 
-    WeeklyProgramDto entityToDto(WeeklyProgramEntity totalProgramEntity);
+    WeeklyProgramDto entityToDto(WeeklyProgram totalProgramEntity);
 
-    List<WeeklyProgramDto> entityToDtoWeeklyProgramEntityList(List<WeeklyProgramEntity> totalProgramEntities);
+    List<WeeklyProgramDto> entityToDtoWeeklyProgramEntityList(List<WeeklyProgram> totalProgramEntities);
 
-    List<WeeklyProgramEntity> dtoToEntityWeeklyProgramEntityList(List<WeeklyProgramDto> totalProgramEntities);
+    List<WeeklyProgram> dtoToEntityWeeklyProgramEntityList(List<WeeklyProgramDto> totalProgramEntities);
 
     DailyProgramEntity dtoToEntity(DailyProgramDto weeklyProgramDto);
 
@@ -38,12 +38,12 @@ public interface ProgrammerServiceMapper {
     List<DailyProgramDto> entityToDtoDailyProgramEntityList(List<DailyProgramEntity> totalProgramEntities);
 
     List<DailyProgramEntity> dtoToEntityDailyProgramEntityList(List<DailyProgramDto> totalProgramEntities);
-    MoveEntity dtoToEntity(MoveDto moveDto);
+    Move dtoToEntity(MoveDto moveDto);
 
-    MoveDto entityToDto(MoveEntity moveEntity);
+    MoveDto entityToDto(Move move);
 
-    List<MoveDto> entityToDtoMoveEntityList(List<MoveEntity> moveEntity);
+    List<MoveDto> entityToDtoMoveEntityList(List<Move> move);
 
-    List<MoveEntity> dtoToEntityMoveEntityList(List<MoveDto> moveDto);
+    List<Move> dtoToEntityMoveEntityList(List<MoveDto> moveDto);
 
 }

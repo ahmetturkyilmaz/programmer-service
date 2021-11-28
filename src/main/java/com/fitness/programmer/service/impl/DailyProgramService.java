@@ -1,8 +1,9 @@
 package com.fitness.programmer.service.impl;
 
+import com.fitness.programmer.exception.DailyProgramNotFoundException;
 import com.fitness.programmer.exception.RequestException;
 import com.fitness.programmer.model.dto.DailyProgramDto;
-import com.fitness.programmer.model.dto.DailyProgramGetRequest;
+import com.fitness.programmer.model.enums.DayOfWeek;
 import com.fitness.programmer.repository.IDailyProgramRepository;
 import com.fitness.programmer.service.IDailyProgramService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,13 +17,18 @@ public class DailyProgramService implements IDailyProgramService {
     private IDailyProgramRepository dailyProgramRepository;
 
     @Override
-    public List<DailyProgramDto> getDailyProgramsByWeek(DailyProgramGetRequest getRequest, String username) {
-        return dailyProgramRepository.getDailyProgramsInWeek(username, getRequest.getTotalProgramId(), getRequest.getWeekNumber());
+    public DailyProgramDto getOneInWeek(String totalProgramId, Integer weekNumber, DayOfWeek dayOfWeek, String username) throws DailyProgramNotFoundException {
+        return dailyProgramRepository.getOneInWeek(totalProgramId, weekNumber, dayOfWeek, username);
     }
 
     @Override
-    public List<DailyProgramDto> getDailyProgramsByTotalProgram(DailyProgramGetRequest getRequest, String username) {
-        return dailyProgramRepository.getAllDailyProgramsInTotalProgram(username, getRequest.getTotalProgramId());
+    public List<DailyProgramDto> getDailyProgramsByWeek(String totalProgramId, Integer weekNumb, String username) {
+        return dailyProgramRepository.getDailyProgramsInWeek(username, totalProgramId, weekNumb);
+    }
+
+    @Override
+    public List<DailyProgramDto> getDailyProgramsByTotalProgram(String totalProgramId, String username) {
+        return dailyProgramRepository.getAllDailyProgramsInTotalProgram(username, totalProgramId);
     }
 
     @Override

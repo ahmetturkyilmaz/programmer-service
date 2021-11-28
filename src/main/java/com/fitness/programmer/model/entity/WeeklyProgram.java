@@ -1,6 +1,6 @@
 package com.fitness.programmer.model.entity;
 
-public class WeeklyProgramEntity {
+public class WeeklyProgram {
     private String name;
 
     private Integer weekNumber;

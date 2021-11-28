@@ -1,12 +1,13 @@
 package com.fitness.programmer.model.dto;
 
-import com.fitness.programmer.model.enums.ProgramWeekType;
 
 import java.util.List;
 
 public class TotalProgramDto extends BaseDto {
     private String programName;
     private List<WeeklyProgramDto> weeklyPrograms;
+    private boolean isActive;
+    private int orderNumber;
 
     public String getProgramName() {
         return programName;
@@ -22,5 +23,21 @@ public class TotalProgramDto extends BaseDto {
 
     public void setWeeklyPrograms(List<WeeklyProgramDto> weeklyProgramDtos) {
         this.weeklyPrograms = weeklyProgramDtos;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
+    }
+
+    public int getOrderNumber() {
+        return orderNumber;
+    }
+
+    public void setOrderNumber(int orderNumber) {
+        this.orderNumber = orderNumber;
     }
 }

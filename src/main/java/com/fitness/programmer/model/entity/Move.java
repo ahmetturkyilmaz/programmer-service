@@ -1,9 +1,10 @@
 package com.fitness.programmer.model.entity;
 
 
+
 import java.util.Map;
 
-public class MoveEntity {
+public class Move {
 
     private String name;
 
@@ -13,18 +14,16 @@ public class MoveEntity {
 
     private Integer sets;
 
-    private Map<Integer, RepWeightEntity> setRepWeightMap;
-
     private Long time;
 
-    private String RPM;
+    private Map<Integer, SetInfo> setInfoMap;
 
-    public String getRPM() {
-        return RPM;
+    public Map<Integer, SetInfo> getSetInfoMap() {
+        return setInfoMap;
     }
 
-    public void setRPM(String RPM) {
-        this.RPM = RPM;
+    public void setSetInfoMap(Map<Integer, SetInfo> setInfoMap) {
+        this.setInfoMap = setInfoMap;
     }
 
     public String getMoveType() {
@@ -68,11 +67,5 @@ public class MoveEntity {
         this.sets = sets;
     }
 
-    public Map<Integer, RepWeightEntity> getSetRepWeightMap() {
-        return setRepWeightMap;
-    }
 
-    public void setSetRepWeightMap(Map<Integer, RepWeightEntity> setRepWeightMap) {
-        this.setRepWeightMap = setRepWeightMap;
-    }
 }

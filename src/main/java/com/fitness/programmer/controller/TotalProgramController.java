@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
-@RequestMapping("/total-program")
+@RequestMapping("/api/total-program")
 public class TotalProgramController extends BaseController {
 
     @Autowired

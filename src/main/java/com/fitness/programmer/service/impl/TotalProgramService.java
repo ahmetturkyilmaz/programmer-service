@@ -34,6 +34,7 @@ public class TotalProgramService implements ITotalProgramService {
     public TotalProgramDto postTotalProgram(ProgramCreateRequestDto createRequestDto) throws RequestException {
         TotalProgramDto newTotalProgram = new TotalProgramDto();
         newTotalProgram.setProgramName(createRequestDto.getNameOfProgram());
+        newTotalProgram.setActive(createRequestDto.isActive());
         List<WeeklyProgramDto> weeklyProgramList = new ArrayList<>();
         switch (createRequestDto.getNumberOfWeeks()) {
             case 1:
@@ -80,29 +81,9 @@ public class TotalProgramService implements ITotalProgramService {
         WeeklyProgramDto weeklyProgramDto = new WeeklyProgramDto();
         weeklyProgramDto.setWeekNumber(numbOfWeek);
 
-/*        List<DailyProgramDto> dailyProgramList = new ArrayList<>();
 
-        dailyProgramList.add(defineDailyProgram(DayOfWeek.MONDAY));
-        dailyProgramList.add(defineDailyProgram(DayOfWeek.TUESDAY));
-        dailyProgramList.add(defineDailyProgram(DayOfWeek.WEDNESDAY));
-        dailyProgramList.add(defineDailyProgram(DayOfWeek.THURSDAY));
-        dailyProgramList.add(defineDailyProgram(DayOfWeek.FRIDAY));
-        dailyProgramList.add(defineDailyProgram(DayOfWeek.SATURDAY));
-        dailyProgramList.add(defineDailyProgram(DayOfWeek.SUNDAY));
-
-        weeklyProgramDto.setDailyPrograms(dailyProgramList);*/
         return weeklyProgramDto;
     }
-
-/*
-   public static DailyProgramDto defineDailyProgram(DayOfWeek dayOfWeek) {
-        DailyProgramDto dailyProgramDto = new DailyProgramDto();
-        List<MoveDto> moveDtos = new ArrayList<>();
-        dailyProgramDto.setMoveSet(moveDtos);
-        dailyProgramDto.setDayOfWeek(dayOfWeek);
-        return dailyProgramDto;
-    }
-*/
 
     @Override
     public String updateTotalProgramHandleDBRefs(TotalProgramDto totalProgramDto) throws RequestException {
