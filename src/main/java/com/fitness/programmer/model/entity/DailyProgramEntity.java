@@ -1,20 +1,25 @@
 package com.fitness.programmer.model.entity;
 
 import com.fitness.programmer.model.enums.DayOfWeek;
+import com.mongodb.lang.NonNull;
+import org.springframework.data.mongodb.core.index.CompoundIndex;
+import org.springframework.data.mongodb.core.index.CompoundIndexes;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
 @Document(collection = "DailyProgramEntity")
+
 public class DailyProgramEntity extends BaseEntity {
     private String name;
 
+    @NonNull
     private DayOfWeek dayOfWeek;
 
     private List<Move> moveSet;
-
+    @NonNull
     private String totalProgramId;
-
+    @NonNull
     private Integer weekNumber;
 
     public DailyProgramEntity() {

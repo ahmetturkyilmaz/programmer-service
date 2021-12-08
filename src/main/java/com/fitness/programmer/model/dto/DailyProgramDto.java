@@ -5,14 +5,11 @@ import org.springframework.lang.NonNull;
 
 import java.util.List;
 
-public class DailyProgramDto extends BaseDto{
+public class DailyProgramDto extends BaseDto {
     private String name;
-    @NonNull
     private DayOfWeek dayOfWeek;
     private List<MoveDto> moveSet;
-    @NonNull
     private String totalProgramId;
-    @NonNull
     private Integer weekNumber;
 
     public DailyProgramDto() {

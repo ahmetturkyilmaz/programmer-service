@@ -1,8 +1,7 @@
 package com.fitness.programmer.model.entity;
 
 
-
-import java.util.Map;
+import java.util.List;
 
 public class Move {
 
@@ -16,14 +15,14 @@ public class Move {
 
     private Long time;
 
-    private Map<Integer, SetInfo> setInfoMap;
+    private List<SetInfo> setInfoList;
 
-    public Map<Integer, SetInfo> getSetInfoMap() {
-        return setInfoMap;
+    public List<SetInfo> getSetInfoList() {
+        return setInfoList;
     }
 
-    public void setSetInfoMap(Map<Integer, SetInfo> setInfoMap) {
-        this.setInfoMap = setInfoMap;
+    public void setSetInfoList(List<SetInfo> setInfoList) {
+        this.setInfoList = setInfoList;
     }
 
     public String getMoveType() {

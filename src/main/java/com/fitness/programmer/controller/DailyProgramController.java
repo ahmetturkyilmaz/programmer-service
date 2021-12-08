@@ -39,11 +39,11 @@ public class DailyProgramController extends BaseController {
 
     }
 
-    @GetMapping("/one")
+    @GetMapping("/one/{totalProgramId}/{weekNumber}/{dayOfWeek}")
     public DailyProgramDto getOneInWeekProgramById(HttpServletRequest httpServletRequest,
-                                                   @RequestParam String totalProgramId,
-                                                   @RequestParam Integer weekNumber,
-                                                   @RequestParam DayOfWeek dayOfWeek) throws RequestException {
+                                                   @PathVariable String totalProgramId,
+                                                   @PathVariable Integer weekNumber,
+                                                   @PathVariable DayOfWeek dayOfWeek) throws RequestException {
         String username = jwtUtils.getUsernameByJWT(httpServletRequest.getHeader("Authorization").substring(7));
 
         return dailyProgramService.getOneInWeek(totalProgramId, weekNumber, dayOfWeek, username);
@@ -55,12 +55,12 @@ public class DailyProgramController extends BaseController {
     }
 
     @PostMapping()
-    public DailyProgramDto postDailyProgram(DailyProgramDto dailyProgramDto) {
+    public DailyProgramDto postDailyProgram(@RequestBody DailyProgramDto dailyProgramDto) {
         return dailyProgramService.postDailyProgram(dailyProgramDto);
     }
 
     @PutMapping()
-    public DailyProgramDto putDailyProgram(DailyProgramDto dailyProgramDto) {
+    public DailyProgramDto putDailyProgram(@RequestBody DailyProgramDto dailyProgramDto) {
         return dailyProgramService.updateDailyProgram(dailyProgramDto);
     }
 

@@ -35,9 +35,9 @@ public interface ProgrammerServiceMapper {
 
     DailyProgramDto entityToDto(DailyProgramEntity totalProgramEntity);
 
-    List<DailyProgramDto> entityToDtoDailyProgramEntityList(List<DailyProgramEntity> totalProgramEntities);
+    List<DailyProgramDto> entityToDtoDailyProgramEntityList(List<DailyProgramEntity> dailyProgramEntities);
 
-    List<DailyProgramEntity> dtoToEntityDailyProgramEntityList(List<DailyProgramDto> totalProgramEntities);
+    List<DailyProgramEntity> dtoToEntityDailyProgramEntityList(List<DailyProgramDto> dailyProgramDtos);
     Move dtoToEntity(MoveDto moveDto);
 
     MoveDto entityToDto(Move move);

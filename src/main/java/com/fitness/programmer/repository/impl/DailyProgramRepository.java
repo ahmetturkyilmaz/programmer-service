@@ -40,13 +40,11 @@ public class DailyProgramRepository implements IDailyProgramRepository {
 
     @Override
     public DailyProgramDto getOneInWeek(String totalProgramId, Integer weekNumber, DayOfWeek dayOfWeek, String username) throws DailyProgramNotFoundException {
-        Optional<DailyProgramEntity> dailyProgramEntity = dailyProgramRepositoryMongo.getOneInWeek(username,totalProgramId,weekNumber,dayOfWeek);
+        Optional<DailyProgramEntity> dailyProgramEntity = dailyProgramRepositoryMongo.getOneInWeek(username, totalProgramId, weekNumber, dayOfWeek);
         if (!dailyProgramEntity.isPresent()) {
             throw new DailyProgramNotFoundException();
         }
-
-
-        return null;
+        return mapper.entityToDto(dailyProgramEntity.get());
     }
 
     @Override

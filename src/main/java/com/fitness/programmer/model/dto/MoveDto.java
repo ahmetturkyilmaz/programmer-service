@@ -1,5 +1,6 @@
 package com.fitness.programmer.model.dto;
 
+import java.util.List;
 import java.util.Map;
 
 public class MoveDto {
@@ -8,7 +9,7 @@ public class MoveDto {
     private Integer moveNumber;
     private Long time;
     private Integer sets;
-    private Map<Integer, SetInfoDto> setInfoMap;
+    private List<SetInfoDto> setInfoList;
 
 
     public MoveDto() {
@@ -55,11 +56,11 @@ public class MoveDto {
         this.sets = sets;
     }
 
-    public Map<Integer, SetInfoDto> getSetInfoMap() {
-        return setInfoMap;
+    public List<SetInfoDto> getSetInfoList() {
+        return setInfoList;
     }
 
-    public void setSetInfoMap(Map<Integer, SetInfoDto> setInfoMap) {
-        this.setInfoMap = setInfoMap;
+    public void setSetInfoList(List<SetInfoDto> setInfoList) {
+        this.setInfoList = setInfoList;
     }
 }
